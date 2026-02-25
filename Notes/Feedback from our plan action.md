@@ -193,3 +193,9 @@
 
 ---
 
+## Feedback from teacher 
+
+* Add an overview of intermediate products. 
+* What are those intermediate products? 
+* When should they be finished? 
+* When do you test them? Note: set those deadlines and intermediate products for your team internally.
