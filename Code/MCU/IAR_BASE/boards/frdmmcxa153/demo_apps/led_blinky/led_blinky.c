@@ -8,17 +8,17 @@ void lpuart2_init(void);
 char lpuart2_getchar(void);
 uint8_t lpuart2_data_available(void);
 void gpio_init(void);
-void delay_ms(uint32_t ms);
+
+// Global variables for IAR watch window debugging
+volatile uint8_t blink_enabled = 0;
+volatile uint32_t last_toggle = 0;
+volatile char buffer[4] = {0};
+volatile uint8_t idx = 0;
 
 int main(void)
 {
     gpio_init();
     lpuart2_init();
-    
-    char buffer[4];
-    uint8_t idx = 0;
-    uint8_t blink_enabled = 0;
-    uint32_t last_toggle = 0;
     
     while(1)
     {
