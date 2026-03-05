@@ -1,0 +1,110 @@
+================================================================================
+MINIMAL IAR TEMPLATE - FRDM-MCXA153
+================================================================================
+Location: C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template
+
+ABSOLUTE MINIMAL STRUCTURE - ONLY ESSENTIAL FILES
+================================================================================
+
+Template/
+├── src/                           [11 files - Application code]
+│   ├── main.c
+│   ├── serial_communication.c
+│   ├── serial.c
+│   ├── lpuart2.c
+│   ├── fifo.c
+│   ├── board.c
+│   ├── board.h
+│   ├── clock_config.c
+│   ├── clock_config.h
+│   ├── pin_mux.c
+│   └── pin_mux.h
+│
+├── inc/                           [4 files - App headers]
+│   ├── serial_communication.h
+│   ├── serial.h
+│   ├── lpuart2.h
+│   └── fifo.h
+│
+├── device/                        [43 files - MCU specific]
+│   ├── MCXA153.h
+│   ├── system_MCXA153.h
+│   ├── system_MCXA153.c
+│   ├── startup_MCXA153.s
+│   └── periph/                   [38 PERI_*.h files]
+│
+├── drivers/                       [13 files - SDK drivers]
+│   ├── fsl_common.h/c
+│   ├── fsl_common_arm.h/c
+│   ├── fsl_clock.h/c
+│   ├── fsl_reset.h/c
+│   ├── fsl_gpio.h/c
+│   ├── fsl_port.h
+│   └── fsl_spc.h/c
+│
+├── CMSIS/Include/                 [6 files - ARM core]
+│   ├── core_cm33.h
+│   ├── cmsis_compiler.h
+│   ├── cmsis_version.h
+│   ├── tz_context.h
+│   └── m-profile/
+│       ├── cmsis_iccarm_m.h
+│       └── armv8m_mpu.h
+│
+└── iar/                           [3 files - IAR project]
+    ├── IARTemplate.ewp           [Project]
+    ├── IARTemplate.eww           [Workspace]
+    └── MCXA153_flash.icf         [Linker]
+
+================================================================================
+TOTAL: ~80 FILES
+================================================================================
+Application:  15 files
+Device:       43 files
+Drivers:      13 files
+CMSIS:         6 files
+IAR:           3 files
+
+================================================================================
+QUICK START
+================================================================================
+1. Open: Template\iar\IARTemplate.eww
+2. Build: F7
+3. Debug: Ctrl+D
+
+================================================================================
+IAR PROJECT CONFIGURATION (Already set)
+================================================================================
+Include Paths:
+  - $PROJ_DIR$\..\src
+  - $PROJ_DIR$\..\inc
+  - $PROJ_DIR$\..\device
+  - $PROJ_DIR$\..\device\periph
+  - $PROJ_DIR$\..\drivers
+  - $PROJ_DIR$\..\CMSIS\Include
+  - $PROJ_DIR$\..\CMSIS\Include\m-profile
+
+Defines:
+  - CPU_MCXA153VLH
+  - MCXA153_SERIES
+
+Linker:
+  - MCXA153_flash.icf
+  - Entry: Reset_Handler
+
+Output:
+  - IARTemplate.out
+  - IARTemplate.bin
+
+================================================================================
+FEATURES
+================================================================================
+✓ UART0 (serial debug)
+✓ UART2 (device communication)  
+✓ Interrupt-driven FIFO buffers
+✓ 96 MHz clock
+✓ GPIO support
+✓ Minimal footprint
+✓ Ready to compile
+
+================================================================================

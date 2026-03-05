@@ -1,0 +1,17 @@
+C:\iar\ewarm-9.60.3\arm\bin\armPROC.dll
+
+ C:\iar\ewarm-9.60.3\arm\bin\armJET.dll
+
+ C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Exe\IARTemplate.out
+
+ --plugin=C:\iar\ewarm-9.60.3\arm\bin\armLibSupportUniversal.dll
+
+ --device_macro=C:\iar\ewarm-9.60.3\arm/config/debugger/NXP/MCXA15x.dmac
+
+ --device_macro=C:\iar\ewarm-9.60.3\arm/config/debugger/NXP/MCXA15x_Trace.dmac
+
+ --flash_loader=C:\iar\ewarm-9.60.3\arm/config/flashloader/NXP/FlashMCXA15x_128K.board
+
+ 
+
+

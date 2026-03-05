@@ -1,0 +1,565 @@
+###############################################################################
+#
+# IAR ELF Linker V9.60.3.422/W64 for ARM                  05/Mar/2026  15:36:43
+# Copyright 2007-2024 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Exe\IARTemplate.out
+#    Map file     =
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\List\IARTemplate.map
+#    Command line =
+#        -f
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Exe\IARTemplate.out.rsp
+#        (C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\board_15934270115374689736.dir\board.o
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\board_15934270115374689736.dir\clock_config.o
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\drivers_4306295370633009451.dir\fsl_clock.o
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\drivers_4306295370633009451.dir\fsl_common.o
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\drivers_4306295370633009451.dir\fsl_common_arm.o
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\drivers_4306295370633009451.dir\fsl_gpio.o
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\drivers_4306295370633009451.dir\fsl_reset.o
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\drivers_4306295370633009451.dir\fsl_spc.o
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\source_5634686896477721948.dir\led_blinky.o
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\board_15934270115374689736.dir\pin_mux.o
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\startup_5253055491327143397.dir\startup_MCXA153.o
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\device_14273152114726608622.dir\system_MCXA153.o
+#        --map
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\List\IARTemplate.map
+#        --config C:\iar\ewarm-9.60.3\arm/config/linker/NXP/MCXA153.icf
+#        --semihosting --entry __iar_program_start --vfe --text_out locale
+#        --cpu=Cortex-M33.no_dsp.no_se --fpu=None --no_out_extension -o
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Exe\IARTemplate.out)
+#        --dependencies=n
+#        C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Exe\IARTemplate.out.iar_deps
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__Heap_Handler  = DLMalloc
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The advanced heap was selected because the application calls
+memory allocation functions outside of system library functions,
+there are calls to deallocation functions in the application, and
+the application appears to be primarily optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x1'ffff] { ro };
+define block CSTACK with size = 2K, alignment = 8 { };
+define block PROC_STACK with size = 0, alignment = 8 { };
+define block HEAP with size = 2K, alignment = 8 { };
+"P4":  place in [from 0x2000'0000 to 0x2000'5fff] {
+          rw, block CSTACK, block PROC_STACK, block HEAP };
+
+No sections matched the following patterns:
+
+  ro section application_specific_ro  in "P3"
+  section .textrw                     in "P2"
+
+
+  Section          Kind         Address  Alignment   Size  Object
+  -------          ----         -------  ---------   ----  ------
+"A0":                                               0x180
+  .intvec          ro code          0x0          4  0x180  startup_MCXA153.o [5]
+                                - 0x180             0x180
+
+"P1":                                               0x4e0
+  .text            ro code        0x180          4   0xd4  system_MCXA153.o [2]
+  .text            ro code        0x254          2    0x2  system_MCXA153.o [2]
+  .text            ro code        0x256          2    0x2  startup_MCXA153.o [5]
+  .text            ro code        0x258          4   0x70  led_blinky.o [4]
+  .text            ro code        0x2c8          2   0x38  zero_init3.o [7]
+  .text            ro code        0x300          4   0x34  startup_MCXA153.o [5]
+  .text            ro code        0x334          4   0x28  data_init.o [7]
+  .iar.init_table  const          0x35c          4   0x10  - Linker created -
+  .text            ro code        0x36c          4   0x1e  cmain.o [7]
+  .text            ro code        0x38a          2    0x4  low_level_init.o [6]
+  .text            ro code        0x38e          2    0x4  exit.o [6]
+  .text            ro code        0x392          2    0x2  startup_MCXA153.o [5]
+  .text            ro code        0x394          4    0xa  cexit.o [7]
+  .text            ro code        0x39e          2    0x2  startup_MCXA153.o [5]
+  .text            ro code        0x3a0          4   0x14  exit.o [8]
+  .text            ro code        0x3b4          4   0x1c  cstartup_M.o [7]
+  .text            ro code        0x3d0          4    0xc  startup_MCXA153.o [5]
+  .text            ro code        0x3dc          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x3e4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x3ec          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x3f4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x3fc          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x404          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x40c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x414          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x41c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x424          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x42c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x434          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x43c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x444          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x44c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x454          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x45c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x464          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x46c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x474          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x47c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x484          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x48c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x494          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x49c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x4a4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x4ac          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x4b4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x4bc          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x4c4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x4cc          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x4d4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x4dc          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x4e4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x4ec          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x4f4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x4fc          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x504          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x50c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x514          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x51c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x524          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x52c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x534          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x53c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x544          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x54c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x554          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x55c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x564          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x56c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x574          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x57c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x584          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x58c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x594          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x59c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x5a4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x5ac          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x5b4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x5bc          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x5c4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x5cc          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x5d4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x5dc          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x5e4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x5ec          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x5f4          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x5fc          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x604          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x60c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x614          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x61c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x624          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x62c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x634          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x63c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x644          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x64c          4    0x8  startup_MCXA153.o [5]
+  .text            ro code        0x654          2    0x2  startup_MCXA153.o [5]
+  .text            ro code        0x656          2    0x2  startup_MCXA153.o [5]
+  .text            ro code        0x658          2    0x2  startup_MCXA153.o [5]
+  .text            ro code        0x65a          2    0x2  startup_MCXA153.o [5]
+  .text            ro code        0x65c          2    0x2  startup_MCXA153.o [5]
+  .text            ro code        0x65e          2    0x2  startup_MCXA153.o [5]
+  .rodata          const          0x660               0x0  zero_init3.o [7]
+                                - 0x660             0x4e0
+
+"P4", part 1 of 2:                                    0x4
+  .bss             zero     0x2000'0000          4    0x4  led_blinky.o [4]
+                          - 0x2000'0004               0x4
+
+"P4", part 2 of 2:                                  0x800
+  CSTACK                    0x2000'0008          8  0x800  <Block>
+    CSTACK         uninit   0x2000'0008             0x800  <Block tail>
+                          - 0x2000'0808             0x800
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x660     0x1'ffff  0x1'f9a0
+  0x2000'0004  0x2000'0007       0x4
+  0x2000'0808  0x2000'5fff    0x57f8
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x4:
+          0x2000'0000   0x4
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module             ro code  ro data  rw data
+    ------             -------  -------  -------
+command line/config:
+    --------------------------------------------
+    Total:
+
+C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\board_15934270115374689736.dir: [1]
+    --------------------------------------------
+    Total:
+
+C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\device_14273152114726608622.dir: [2]
+    system_MCXA153.o       214
+    --------------------------------------------
+    Total:                 214
+
+C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\drivers_4306295370633009451.dir: [3]
+    --------------------------------------------
+    Total:
+
+C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\source_5634686896477721948.dir: [4]
+    led_blinky.o           112                 4
+    --------------------------------------------
+    Total:                 112                 4
+
+C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\startup_5253055491327143397.dir: [5]
+    startup_MCXA153.o    1'098
+    --------------------------------------------
+    Total:               1'098
+
+dl7M_tln.a: [6]
+    exit.o                   4
+    low_level_init.o         4
+    --------------------------------------------
+    Total:                   8
+
+rt7M_tl.a: [7]
+    cexit.o                 10
+    cmain.o                 30
+    cstartup_M.o            28
+    data_init.o             40
+    zero_init3.o            56
+    --------------------------------------------
+    Total:                 164
+
+shb_l.a: [8]
+    exit.o                  20
+    --------------------------------------------
+    Total:                  20
+
+    Linker created                   16    2'048
+------------------------------------------------
+    Grand Total:         1'616       16    2'052
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address  Size  Type      Object
+-----                       -------  ----  ----      ------
+.iar.init_table$$Base         0x35c         --   Gb  - Linker created -
+.iar.init_table$$Limit        0x36c         --   Gb  - Linker created -
+?main                         0x36d        Code  Gb  cmain.o [7]
+ADC0_DriverIRQHandler         0x3d5        Code  Wk  startup_MCXA153.o [5]
+ADC0_IRQHandler               0x5cd        Code  Wk  startup_MCXA153.o [5]
+BusFault_Handler              0x655        Code  Wk  startup_MCXA153.o [5]
+CDOG0_DriverIRQHandler        0x3d5        Code  Wk  startup_MCXA153.o [5]
+CDOG0_IRQHandler              0x50d        Code  Wk  startup_MCXA153.o [5]
+CMC_DriverIRQHandler          0x3d5        Code  Wk  startup_MCXA153.o [5]
+CMC_IRQHandler                0x3e5        Code  Wk  startup_MCXA153.o [5]
+CMP0_DriverIRQHandler         0x3d5        Code  Wk  startup_MCXA153.o [5]
+CMP0_IRQHandler               0x5dd        Code  Wk  startup_MCXA153.o [5]
+CMP1_DriverIRQHandler         0x3d5        Code  Wk  startup_MCXA153.o [5]
+CMP1_IRQHandler               0x5e5        Code  Wk  startup_MCXA153.o [5]
+CSTACK$$Base            0x2000'0008         --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'0808         --   Gb  - Linker created -
+CTIMER0_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+CTIMER0_IRQHandler            0x515        Code  Wk  startup_MCXA153.o [5]
+CTIMER1_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+CTIMER1_IRQHandler            0x51d        Code  Wk  startup_MCXA153.o [5]
+CTIMER2_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+CTIMER2_IRQHandler            0x525        Code  Wk  startup_MCXA153.o [5]
+DMA_CH0_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+DMA_CH0_IRQHandler            0x3ed        Code  Wk  startup_MCXA153.o [5]
+DMA_CH1_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+DMA_CH1_IRQHandler            0x3f5        Code  Wk  startup_MCXA153.o [5]
+DMA_CH2_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+DMA_CH2_IRQHandler            0x3fd        Code  Wk  startup_MCXA153.o [5]
+DMA_CH3_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+DMA_CH3_IRQHandler            0x405        Code  Wk  startup_MCXA153.o [5]
+DebugMon_Handler              0x65d        Code  Wk  startup_MCXA153.o [5]
+ERM0_MULTI_BIT_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+ERM0_MULTI_BIT_IRQHandler
+                              0x435        Code  Wk  startup_MCXA153.o [5]
+ERM0_SINGLE_BIT_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+ERM0_SINGLE_BIT_IRQHandler
+                              0x42d        Code  Wk  startup_MCXA153.o [5]
+FLEXPWM0_FAULT_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+FLEXPWM0_FAULT_IRQHandler
+                              0x545        Code  Wk  startup_MCXA153.o [5]
+FLEXPWM0_RELOAD_ERROR_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+FLEXPWM0_RELOAD_ERROR_IRQHandler
+                              0x53d        Code  Wk  startup_MCXA153.o [5]
+FLEXPWM0_SUBMODULE0_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+FLEXPWM0_SUBMODULE0_IRQHandler
+                              0x54d        Code  Wk  startup_MCXA153.o [5]
+FLEXPWM0_SUBMODULE1_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+FLEXPWM0_SUBMODULE1_IRQHandler
+                              0x555        Code  Wk  startup_MCXA153.o [5]
+FLEXPWM0_SUBMODULE2_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+FLEXPWM0_SUBMODULE2_IRQHandler
+                              0x55d        Code  Wk  startup_MCXA153.o [5]
+FMU0_DriverIRQHandler         0x3d5        Code  Wk  startup_MCXA153.o [5]
+FMU0_IRQHandler               0x43d        Code  Wk  startup_MCXA153.o [5]
+FREQME0_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+FREQME0_IRQHandler            0x58d        Code  Wk  startup_MCXA153.o [5]
+GLIKEY0_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+GLIKEY0_IRQHandler            0x445        Code  Wk  startup_MCXA153.o [5]
+GPIO0_DriverIRQHandler        0x3d5        Code  Wk  startup_MCXA153.o [5]
+GPIO0_IRQHandler              0x615        Code  Wk  startup_MCXA153.o [5]
+GPIO1_DriverIRQHandler        0x3d5        Code  Wk  startup_MCXA153.o [5]
+GPIO1_IRQHandler              0x61d        Code  Wk  startup_MCXA153.o [5]
+GPIO2_DriverIRQHandler        0x3d5        Code  Wk  startup_MCXA153.o [5]
+GPIO2_IRQHandler              0x625        Code  Wk  startup_MCXA153.o [5]
+GPIO3_DriverIRQHandler        0x3d5        Code  Wk  startup_MCXA153.o [5]
+GPIO3_IRQHandler              0x62d        Code  Wk  startup_MCXA153.o [5]
+HardFault_Handler             0x393        Code  Wk  startup_MCXA153.o [5]
+I3C0_DriverIRQHandler         0x3d5        Code  Wk  startup_MCXA153.o [5]
+I3C0_IRQHandler               0x49d        Code  Wk  startup_MCXA153.o [5]
+LPI2C0_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+LPI2C0_IRQHandler             0x4ad        Code  Wk  startup_MCXA153.o [5]
+LPSPI0_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+LPSPI0_IRQHandler             0x4bd        Code  Wk  startup_MCXA153.o [5]
+LPSPI1_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+LPSPI1_IRQHandler             0x4c5        Code  Wk  startup_MCXA153.o [5]
+LPTMR0_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+LPTMR0_IRQHandler             0x595        Code  Wk  startup_MCXA153.o [5]
+LPUART0_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+LPUART0_IRQHandler            0x4d5        Code  Wk  startup_MCXA153.o [5]
+LPUART1_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+LPUART1_IRQHandler            0x4dd        Code  Wk  startup_MCXA153.o [5]
+LPUART2_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+LPUART2_IRQHandler            0x4e5        Code  Wk  startup_MCXA153.o [5]
+MBC0_DriverIRQHandler         0x3d5        Code  Wk  startup_MCXA153.o [5]
+MBC0_IRQHandler               0x44d        Code  Wk  startup_MCXA153.o [5]
+MemManage_Handler             0x39f        Code  Wk  startup_MCXA153.o [5]
+NMI_Handler                   0x257        Code  Wk  startup_MCXA153.o [5]
+OS_EVENT_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+OS_EVENT_IRQHandler           0x5a5        Code  Wk  startup_MCXA153.o [5]
+PendSV_Handler                0x65f        Code  Wk  startup_MCXA153.o [5]
+QDC0_COMPARE_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+QDC0_COMPARE_IRQHandler
+                              0x56d        Code  Wk  startup_MCXA153.o [5]
+QDC0_HOME_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+QDC0_HOME_IRQHandler          0x575        Code  Wk  startup_MCXA153.o [5]
+QDC0_INDEX_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+QDC0_INDEX_IRQHandler         0x585        Code  Wk  startup_MCXA153.o [5]
+QDC0_WATCHDOG_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+QDC0_WATCHDOG_IRQHandler
+                              0x57d        Code  Wk  startup_MCXA153.o [5]
+Region$$Table$$Base           0x35c         --   Gb  - Linker created -
+Region$$Table$$Limit          0x36c         --   Gb  - Linker created -
+Reserved16_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved16_IRQHandler         0x3dd        Code  Wk  startup_MCXA153.o [5]
+Reserved22_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved22_IRQHandler         0x40d        Code  Wk  startup_MCXA153.o [5]
+Reserved23_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved23_IRQHandler         0x415        Code  Wk  startup_MCXA153.o [5]
+Reserved24_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved24_IRQHandler         0x41d        Code  Wk  startup_MCXA153.o [5]
+Reserved25_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved25_IRQHandler         0x425        Code  Wk  startup_MCXA153.o [5]
+Reserved33_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved33_IRQHandler         0x465        Code  Wk  startup_MCXA153.o [5]
+Reserved35_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved35_IRQHandler         0x475        Code  Wk  startup_MCXA153.o [5]
+Reserved36_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved36_IRQHandler         0x47d        Code  Wk  startup_MCXA153.o [5]
+Reserved37_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved37_IRQHandler         0x485        Code  Wk  startup_MCXA153.o [5]
+Reserved38_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved38_IRQHandler         0x48d        Code  Wk  startup_MCXA153.o [5]
+Reserved39_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved39_IRQHandler         0x495        Code  Wk  startup_MCXA153.o [5]
+Reserved41_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved41_IRQHandler         0x4a5        Code  Wk  startup_MCXA153.o [5]
+Reserved43_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved43_IRQHandler         0x4b5        Code  Wk  startup_MCXA153.o [5]
+Reserved46_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved46_IRQHandler         0x4cd        Code  Wk  startup_MCXA153.o [5]
+Reserved50_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved50_IRQHandler         0x4ed        Code  Wk  startup_MCXA153.o [5]
+Reserved51_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved51_IRQHandler         0x4f5        Code  Wk  startup_MCXA153.o [5]
+Reserved53_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved53_IRQHandler         0x505        Code  Wk  startup_MCXA153.o [5]
+Reserved58_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved58_IRQHandler         0x52d        Code  Wk  startup_MCXA153.o [5]
+Reserved59_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved59_IRQHandler         0x535        Code  Wk  startup_MCXA153.o [5]
+Reserved65_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved65_IRQHandler         0x565        Code  Wk  startup_MCXA153.o [5]
+Reserved72_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved72_IRQHandler         0x59d        Code  Wk  startup_MCXA153.o [5]
+Reserved77_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved77_IRQHandler         0x5c5        Code  Wk  startup_MCXA153.o [5]
+Reserved79_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved79_IRQHandler         0x5d5        Code  Wk  startup_MCXA153.o [5]
+Reserved82_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved82_IRQHandler         0x5ed        Code  Wk  startup_MCXA153.o [5]
+Reserved83_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved83_IRQHandler         0x5f5        Code  Wk  startup_MCXA153.o [5]
+Reserved84_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved84_IRQHandler         0x5fd        Code  Wk  startup_MCXA153.o [5]
+Reserved85_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved85_IRQHandler         0x605        Code  Wk  startup_MCXA153.o [5]
+Reserved86_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved86_IRQHandler         0x60d        Code  Wk  startup_MCXA153.o [5]
+Reserved91_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved91_IRQHandler         0x635        Code  Wk  startup_MCXA153.o [5]
+Reserved92_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved92_IRQHandler         0x63d        Code  Wk  startup_MCXA153.o [5]
+Reserved93_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved93_IRQHandler         0x645        Code  Wk  startup_MCXA153.o [5]
+Reserved94_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved94_IRQHandler         0x64d        Code  Wk  startup_MCXA153.o [5]
+Reserved95_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+Reserved95_IRQHandler         0x3d1        Code  Wk  startup_MCXA153.o [5]
+Reset_Handler                 0x301        Code  Wk  startup_MCXA153.o [5]
+SCG0_DriverIRQHandler         0x3d5        Code  Wk  startup_MCXA153.o [5]
+SCG0_IRQHandler               0x455        Code  Wk  startup_MCXA153.o [5]
+SPC0_DriverIRQHandler         0x3d5        Code  Wk  startup_MCXA153.o [5]
+SPC0_IRQHandler               0x45d        Code  Wk  startup_MCXA153.o [5]
+SVC_Handler                   0x65b        Code  Wk  startup_MCXA153.o [5]
+SecureFault_Handler           0x659        Code  Wk  startup_MCXA153.o [5]
+SysTick_Handler               0x259  0x1c  Code  Gb  led_blinky.o [4]
+SystemInit                    0x181  0xd4  Code  Wk  system_MCXA153.o [2]
+SystemInitHook                0x255   0x2  Code  Wk  system_MCXA153.o [2]
+USB0_DriverIRQHandler         0x3d5        Code  Wk  startup_MCXA153.o [5]
+USB0_IRQHandler               0x4fd        Code  Wk  startup_MCXA153.o [5]
+UTICK0_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+UTICK0_IRQHandler             0x5b5        Code  Wk  startup_MCXA153.o [5]
+UsageFault_Handler            0x657        Code  Wk  startup_MCXA153.o [5]
+WAKETIMER0_DriverIRQHandler
+                              0x3d5        Code  Wk  startup_MCXA153.o [5]
+WAKETIMER0_IRQHandler         0x5ad        Code  Wk  startup_MCXA153.o [5]
+WUU0_DriverIRQHandler         0x3d5        Code  Wk  startup_MCXA153.o [5]
+WUU0_IRQHandler               0x46d        Code  Wk  startup_MCXA153.o [5]
+WWDT0_DriverIRQHandler        0x3d5        Code  Wk  startup_MCXA153.o [5]
+WWDT0_IRQHandler              0x5bd        Code  Wk  startup_MCXA153.o [5]
+__Vectors                       0x0         --   Gb  startup_MCXA153.o [5]
+__Vectors_End                 0x180        Data  Gb  startup_MCXA153.o [5]
+__Vectors_Size {Abs}          0x180         --   Gb  startup_MCXA153.o [5]
+__cmain                       0x36d        Code  Gb  cmain.o [7]
+__exit                        0x3a1  0x14  Code  Gb  exit.o [8]
+__iar_data_init3              0x335  0x28  Code  Gb  data_init.o [7]
+__iar_program_start           0x3b5        Code  Gb  cstartup_M.o [7]
+__iar_zero_init3              0x2c9  0x38  Code  Gb  zero_init3.o [7]
+__low_level_init              0x38b   0x4  Code  Gb  low_level_init.o [6]
+__vector_table                  0x0        Data  Gb  startup_MCXA153.o [5]
+__vector_table_0x1c            0x1c        Data  Gb  startup_MCXA153.o [5]
+_call_main                    0x379        Code  Gb  cmain.o [7]
+_exit                         0x395        Code  Gb  cexit.o [7]
+exit                          0x38f   0x4  Code  Gb  exit.o [6]
+main                          0x275  0x36  Code  Gb  led_blinky.o [4]
+tick_count              0x2000'0000   0x4  Data  Gb  led_blinky.o [4]
+
+
+[1] = C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\board_15934270115374689736.dir
+[2] = C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\device_14273152114726608622.dir
+[3] = C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\drivers_4306295370633009451.dir
+[4] = C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\source_5634686896477721948.dir
+[5] = C:\Users\Lenovo\Documents\ObsidianVaults\HAN\3_Period\Beacons-project-HAN\Code\MCU\Template\iar\Debug\Obj\startup_5253055491327143397.dir
+[6] = dl7M_tln.a
+[7] = rt7M_tl.a
+[8] = shb_l.a
+
+  1'616 bytes of readonly  code memory
+     16 bytes of readonly  data memory
+  2'052 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
