@@ -1,7 +1,7 @@
 #include <board.h>
 #include <stdio.h>
 
-#include "serial.h"
+#include "serial/serial.h"
 #include "functions/functions.h"
 #include "serial2lpuart/lpuart2.h"
 #include "solenoid/solenoid.h"
