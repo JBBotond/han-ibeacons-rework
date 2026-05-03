@@ -22,10 +22,14 @@ public:
 private slots:
     void populatePorts();
     void connectSerial();
+    void startStopScan();
+    void onSerialData();
 
 private:
     Ui::Dialog *ui;
     QSerialPort *serial;
     bool m_connected = false;
+    bool m_scanning  = false;
+    QString m_rxBuf;
 };
 #endif // DIALOG_H
