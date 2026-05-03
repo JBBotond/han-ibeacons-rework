@@ -1,6 +1,7 @@
 #include "dialog.h"
 #include "ui_dialog.h"
 #include <QSerialPortInfo>
+#include <QVBoxLayout>
 
 Dialog::Dialog(QWidget *parent)
     : QDialog(parent)
@@ -14,6 +15,29 @@ Dialog::Dialog(QWidget *parent)
     connect(ui->btnScan,          &QPushButton::clicked, this, &Dialog::startStopScan);
     connect(serial, &QSerialPort::readyRead, this, &Dialog::onSerialData);
     ui->btnScan->setEnabled(false);
+
+    // --- Chart setup ---
+    m_chart = new QChart();
+    m_chart->setTitle("RSSI per scan");
+    m_chart->legend()->setVisible(true);
+
+    m_axisX = new QValueAxis();
+    m_axisX->setTitleText("Scan #");
+    m_axisX->setLabelFormat("%d");
+    m_axisX->setRange(0, MAX_POINTS);
+    m_chart->addAxis(m_axisX, Qt::AlignBottom);
+
+    m_axisY = new QValueAxis();
+    m_axisY->setTitleText("RSSI (dBm)");
+    m_axisY->setRange(-100, -30);
+    m_chart->addAxis(m_axisY, Qt::AlignLeft);
+
+    m_chartView = new QChartView(m_chart);
+    m_chartView->setRenderHint(QPainter::Antialiasing);
+    m_chartView->setMinimumHeight(250);
+
+    // Insert chart above the log
+    qobject_cast<QVBoxLayout*>(layout())->insertWidget(1, m_chartView);
 }
 
 
@@ -119,6 +143,11 @@ void Dialog::onSerialData()
                     .arg(minor, 4, 16, QChar('0')).toUpper()
                     .arg(txpower)
                     .arg(rssi));
+
+                QString label = QString("0x%1/0x%2")
+                    .arg(major, 4, 16, QChar('0')).toUpper()
+                    .arg(minor, 4, 16, QChar('0')).toUpper();
+                addRssiPoint(label, rssi);
             }
         }
         else
@@ -126,6 +155,43 @@ void Dialog::onSerialData()
             m_rxBuf.remove(0, 1);
         }
     }
+}
+
+void Dialog::addRssiPoint(const QString &label, qreal rssi)
+{
+    if(!m_series.contains(label))
+    {
+        QLineSeries *s = new QLineSeries();
+        s->setName(label);
+        s->setPointsVisible(true);
+        s->setPointLabelsVisible(false);
+        QPen pen = s->pen();
+        pen.setWidth(2);
+        s->setPen(pen);
+        m_chart->addSeries(s);
+        s->attachAxis(m_axisX);
+        s->attachAxis(m_axisY);
+        m_series[label] = s;
+    }
+
+    QLineSeries *s = m_series[label];
+    s->append(m_scanIndex, rssi);
+
+    // Scroll X window
+    if(m_scanIndex >= MAX_POINTS)
+        m_axisX->setRange(m_scanIndex - MAX_POINTS, m_scanIndex);
+
+    // Auto-fit Y
+    qreal minY = 0, maxY = -150;
+    for(auto *series : m_series)
+        for(const QPointF &p : series->points())
+        {
+            if(p.y() < minY) minY = p.y();
+            if(p.y() > maxY) maxY = p.y();
+        }
+    m_axisY->setRange(minY - 5, maxY + 5);
+
+    m_scanIndex++;
 }
 
 void Dialog::populatePorts()

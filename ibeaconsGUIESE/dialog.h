@@ -3,7 +3,11 @@
 
 #include <QDialog>
 #include <QSerialPort>
-
+#include <QChart>
+#include <QChartView>
+#include <QLineSeries>
+#include <QValueAxis>
+#include <QMap>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -26,10 +30,20 @@ private slots:
     void onSerialData();
 
 private:
-    Ui::Dialog *ui;
-    QSerialPort *serial;
-    bool m_connected = false;
-    bool m_scanning  = false;
-    QString m_rxBuf;
+    void addRssiPoint(const QString &label, qreal rssi);
+
+    Ui::Dialog    *ui;
+    QSerialPort   *serial;
+    bool           m_connected = false;
+    bool           m_scanning  = false;
+    QString        m_rxBuf;
+
+    QChart                    *m_chart;
+    QChartView                *m_chartView;
+    QValueAxis                *m_axisX;
+    QValueAxis                *m_axisY;
+    QMap<QString, QLineSeries*> m_series;
+    int                        m_scanIndex = 0;
+    static const int           MAX_POINTS  = 30;
 };
 #endif // DIALOG_H
