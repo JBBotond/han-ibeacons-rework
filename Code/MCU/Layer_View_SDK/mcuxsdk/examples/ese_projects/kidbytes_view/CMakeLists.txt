@@ -38,6 +38,8 @@ mcux_add_source(
         examples/ese_projects/kidbytes_view/main.c
         examples/ese_projects/kidbytes_view/v_screen.c
         examples/ese_projects/kidbytes_view/v_screen.h
+        examples/ese_projects/kidbytes_view/v_icons.c
+        examples/ese_projects/kidbytes_view/v_icons.h
 
         # FIFO (required by serial)
         examples/ese_common/fifo/fifo.c

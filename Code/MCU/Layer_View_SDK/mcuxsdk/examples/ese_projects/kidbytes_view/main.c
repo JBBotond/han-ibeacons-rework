@@ -1,13 +1,14 @@
 /*! ***************************************************************************
- * \brief  KidBytes View — Step 3 test
+ * \brief  KidBytes View — Step 4 test
  * \file   main.c
  *
- * Test: cycles room=1..5, next=2..5, puzzle_hint="SUDOKU" every 1 s.
+ * Test: cycles RSSI 0→4 bars and room 1→5 every 500 ms.
  *****************************************************************************/
 #include <board.h>
 #include "serial.h"
 #include "display_drv.h"
 #include "v_screen.h"
+#include "v_icons.h"
 
 volatile uint32_t ms = 0;
 
@@ -23,16 +24,21 @@ int main(void)
     v_screen_draw();
 
     uint8_t idx = 0;
-    uint32_t next_tick = ms + 1000;
+    uint32_t next_tick = ms + 500;
 
     while (1)
     {
         if ((int32_t)(ms - next_tick) >= 0)
         {
-            next_tick += 1000;
+            next_tick += 500;
+
             uint8_t room = (idx % 5) + 1;
-            uint8_t next = (idx % 4) + 2;
-            v_screen_update(room, next, "SUDOKU");
+            uint8_t rssi = idx % 5;  /* 0..4 */
+
+            v_screen_update(room, room + 1, "SUDOKU");
+            v_icons_rssi(rssi);
+            v_icons_progress(room);
+
             idx++;
         }
         __WFI();
