@@ -1,0 +1,5 @@
+mainmenu "kidbytes_view"
+
+source "${SdkRootDirPath}/Kconfig.mcuxpresso"
+
+osource "${SdkRootDirPath}/${project_board_port_path}/Kconfig"
