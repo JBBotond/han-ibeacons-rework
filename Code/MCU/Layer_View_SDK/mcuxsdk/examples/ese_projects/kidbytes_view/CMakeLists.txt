@@ -33,6 +33,8 @@ mcux_add_source(
         ${board_root}/${board}/ese_common/serial/serial.c
         ${board_root}/${board}/ese_common/serial/serial.h
         ${board_root}/${board}/ese_common/serial/retarget.c
+        ${board_root}/${board}/ese_common/leds/leds.c
+        ${board_root}/${board}/ese_common/leds/leds.h
 
         # Application
         examples/ese_projects/kidbytes_view/main.c
@@ -40,6 +42,8 @@ mcux_add_source(
         examples/ese_projects/kidbytes_view/v_screen.h
         examples/ese_projects/kidbytes_view/v_icons.c
         examples/ese_projects/kidbytes_view/v_icons.h
+        examples/ese_projects/kidbytes_view/v_fb.c
+        examples/ese_projects/kidbytes_view/v_fb.h
 
         # FIFO (required by serial)
         examples/ese_common/fifo/fifo.c
@@ -51,6 +55,7 @@ mcux_add_include(
     INCLUDES
         ${board_root}/${board}/ese_common/board
         ${board_root}/${board}/ese_common/serial
+        ${board_root}/${board}/ese_common/leds
         ${board_root}/${board}/ese_projects/tft_lcd/_common/resources
         ${board_root}/${board}/ese_projects/tft_lcd/ili9341_240x320/_common/tft_lcd
         examples/ese_projects/kidbytes_view/hal

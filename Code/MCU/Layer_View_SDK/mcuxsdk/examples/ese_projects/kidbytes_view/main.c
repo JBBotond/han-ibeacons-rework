@@ -1,14 +1,15 @@
 /*! ***************************************************************************
- * \brief  KidBytes View — Step 5 test
+ * \brief  KidBytes View — Step 6 test
  * \file   main.c
  *
- * Test: toggles LOW BAT and FAULT every 2 s. RSSI + progress still cycle.
+ * Test: LED blinks once on each puzzle hint update (every 1 s).
  *****************************************************************************/
 #include <board.h>
 #include "serial.h"
 #include "display_drv.h"
 #include "v_screen.h"
 #include "v_icons.h"
+#include "v_fb.h"
 
 volatile uint32_t ms = 0;
 
@@ -20,24 +21,28 @@ int main(void)
     SysTick_Config(96000);                         /* 1 ms tick   */
 
     serial_init(115200);
+    v_fb_init();
     display_open();
     v_screen_draw();
-    v_screen_update(1, 2, "SUDOKU");
-    v_icons_rssi(3);
-    v_icons_progress(1);
 
-    uint8_t toggle = 0;
-    uint32_t next_tick = ms + 2000;
+    uint8_t idx = 0;
+    uint32_t next_tick = ms + 1000;
 
     while (1)
     {
         if ((int32_t)(ms - next_tick) >= 0)
         {
-            next_tick += 2000;
-            toggle ^= 1;
+            next_tick += 1000;
 
-            v_icons_set_battery_low(toggle);
-            v_icons_set_fault(!toggle);
+            uint8_t room = (idx % 5) + 1;
+            v_screen_update(room, room + 1, "SUDOKU");
+            v_icons_rssi(idx % 5);
+            v_icons_progress(room);
+
+            /* LED blink on puzzle hint update */
+            v_fb_puzzle_cue();
+
+            idx++;
         }
         __WFI();
     }
