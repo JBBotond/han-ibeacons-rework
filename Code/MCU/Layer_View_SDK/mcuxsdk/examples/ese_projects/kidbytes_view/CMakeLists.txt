@@ -36,6 +36,8 @@ mcux_add_source(
 
         # Application
         examples/ese_projects/kidbytes_view/main.c
+        examples/ese_projects/kidbytes_view/v_screen.c
+        examples/ese_projects/kidbytes_view/v_screen.h
 
         # FIFO (required by serial)
         examples/ese_common/fifo/fifo.c
@@ -51,6 +53,7 @@ mcux_add_include(
         ${board_root}/${board}/ese_projects/tft_lcd/ili9341_240x320/_common/tft_lcd
         examples/ese_projects/kidbytes_view/hal
         examples/ese_projects/kidbytes_view/drivers
+        examples/ese_projects/kidbytes_view
         examples/ese_common/fifo
 )
 

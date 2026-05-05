@@ -1,12 +1,13 @@
 /*! ***************************************************************************
- * \brief  KidBytes View — Step 1 test
+ * \brief  KidBytes View — Step 2 test
  * \file   main.c
  *
- * Test: screen clears to black, prints "display_drv OK" at (0,0).
+ * Test: screen shows static 3-line layout with placeholder text.
  *****************************************************************************/
 #include <board.h>
 #include "serial.h"
 #include "display_drv.h"
+#include "v_screen.h"
 
 volatile uint32_t ms = 0;
 
@@ -19,11 +20,7 @@ int main(void)
 
     serial_init(115200);
     display_open();
-
-    display_put_string(0, 0, "display_drv OK", RGB_WHITE, RGB_BLACK);
-
-    serial_init(115200); /* already inited, harmless second call */
-    /* printf replacement — use serial directly to stay printf-free */
+    v_screen_draw();
 
     while (1)
     {
