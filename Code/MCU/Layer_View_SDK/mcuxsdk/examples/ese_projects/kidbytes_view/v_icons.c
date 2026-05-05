@@ -49,3 +49,29 @@ void v_icons_progress(uint8_t k)
     uint16_t y = BAR_BASE_Y + BAR_MAX_H + 4;
     display_put_string(x, y, buf, RGB_WHITE, RGB_BLACK);
 }
+
+/* Bottom-left: "LOW BAT" label */
+#define BAT_X  0
+#define BAT_Y  (lcd_height - 16)
+
+void v_icons_set_battery_low(bool on)
+{
+    lcd_set_font(Dialog_plain_12);
+    if (on)
+        display_put_string(BAT_X, BAT_Y, "LOW BAT", RGB_RED, RGB_BLACK);
+    else
+        display_put_string(BAT_X, BAT_Y, "       ", RGB_BLACK, RGB_BLACK);
+}
+
+/* Bottom-right: "FAULT" label */
+#define FAULT_X (lcd_width - 60)
+#define FAULT_Y (lcd_height - 16)
+
+void v_icons_set_fault(bool on)
+{
+    lcd_set_font(Dialog_plain_12);
+    if (on)
+        display_put_string(FAULT_X, FAULT_Y, "FAULT", RGB_YELLOW, RGB_RED);
+    else
+        display_put_string(FAULT_X, FAULT_Y, "     ", RGB_BLACK, RGB_BLACK);
+}

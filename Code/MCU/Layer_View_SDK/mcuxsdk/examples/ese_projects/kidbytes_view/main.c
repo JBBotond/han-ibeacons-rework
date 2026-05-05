@@ -1,8 +1,8 @@
 /*! ***************************************************************************
- * \brief  KidBytes View — Step 4 test
+ * \brief  KidBytes View — Step 5 test
  * \file   main.c
  *
- * Test: cycles RSSI 0→4 bars and room 1→5 every 500 ms.
+ * Test: toggles LOW BAT and FAULT every 2 s. RSSI + progress still cycle.
  *****************************************************************************/
 #include <board.h>
 #include "serial.h"
@@ -22,24 +22,22 @@ int main(void)
     serial_init(115200);
     display_open();
     v_screen_draw();
+    v_screen_update(1, 2, "SUDOKU");
+    v_icons_rssi(3);
+    v_icons_progress(1);
 
-    uint8_t idx = 0;
-    uint32_t next_tick = ms + 500;
+    uint8_t toggle = 0;
+    uint32_t next_tick = ms + 2000;
 
     while (1)
     {
         if ((int32_t)(ms - next_tick) >= 0)
         {
-            next_tick += 500;
+            next_tick += 2000;
+            toggle ^= 1;
 
-            uint8_t room = (idx % 5) + 1;
-            uint8_t rssi = idx % 5;  /* 0..4 */
-
-            v_screen_update(room, room + 1, "SUDOKU");
-            v_icons_rssi(rssi);
-            v_icons_progress(room);
-
-            idx++;
+            v_icons_set_battery_low(toggle);
+            v_icons_set_fault(!toggle);
         }
         __WFI();
     }
