@@ -1,8 +1,8 @@
 /*! ***************************************************************************
- * \brief  KidBytes View — Step 2 test
+ * \brief  KidBytes View — Step 3 test
  * \file   main.c
  *
- * Test: screen shows static 3-line layout with placeholder text.
+ * Test: cycles room=1..5, next=2..5, puzzle_hint="SUDOKU" every 1 s.
  *****************************************************************************/
 #include <board.h>
 #include "serial.h"
@@ -22,8 +22,19 @@ int main(void)
     display_open();
     v_screen_draw();
 
+    uint8_t idx = 0;
+    uint32_t next_tick = ms + 1000;
+
     while (1)
     {
+        if ((int32_t)(ms - next_tick) >= 0)
+        {
+            next_tick += 1000;
+            uint8_t room = (idx % 5) + 1;
+            uint8_t next = (idx % 4) + 2;
+            v_screen_update(room, next, "SUDOKU");
+            idx++;
+        }
         __WFI();
     }
 }
