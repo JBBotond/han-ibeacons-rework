@@ -1,11 +1,12 @@
 /*! ***************************************************************************
- * \brief  KidBytes View — Step 6 test
+ * \brief  KidBytes View — Step 7 test
  * \file   main.c
  *
- * Test: LED blinks once on each puzzle hint update (every 1 s).
+ * Test: Press SW2 → buzzer 200 ms + blue LED. Puzzle cue blinks green each 1s.
  *****************************************************************************/
 #include <board.h>
 #include "serial.h"
+#include "switches.h"
 #include "display_drv.h"
 #include "v_screen.h"
 #include "v_icons.h"
@@ -21,6 +22,7 @@ int main(void)
     SysTick_Config(96000);                         /* 1 ms tick   */
 
     serial_init(115200);
+    sw_init();
     v_fb_init();
     display_open();
     v_screen_draw();
@@ -30,18 +32,21 @@ int main(void)
 
     while (1)
     {
+        /* SW2 pressed → unlock cue (buzzer + LED) */
+        if (sw2_pressed())
+        {
+            v_fb_unlock_cue();
+        }
+
+        /* Periodic puzzle hint update with LED cue */
         if ((int32_t)(ms - next_tick) >= 0)
         {
             next_tick += 1000;
-
             uint8_t room = (idx % 5) + 1;
             v_screen_update(room, room + 1, "SUDOKU");
             v_icons_rssi(idx % 5);
             v_icons_progress(room);
-
-            /* LED blink on puzzle hint update */
             v_fb_puzzle_cue();
-
             idx++;
         }
         __WFI();

@@ -35,6 +35,8 @@ mcux_add_source(
         ${board_root}/${board}/ese_common/serial/retarget.c
         ${board_root}/${board}/ese_common/leds/leds.c
         ${board_root}/${board}/ese_common/leds/leds.h
+        ${board_root}/${board}/ese_common/switches/switches.c
+        ${board_root}/${board}/ese_common/switches/switches.h
 
         # Application
         examples/ese_projects/kidbytes_view/main.c
@@ -56,6 +58,7 @@ mcux_add_include(
         ${board_root}/${board}/ese_common/board
         ${board_root}/${board}/ese_common/serial
         ${board_root}/${board}/ese_common/leds
+        ${board_root}/${board}/ese_common/switches
         ${board_root}/${board}/ese_projects/tft_lcd/_common/resources
         ${board_root}/${board}/ese_projects/tft_lcd/ili9341_240x320/_common/tft_lcd
         examples/ese_projects/kidbytes_view/hal
