@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KidBytes · Conceptual / Functional Architecture</title>
+<style>
+  :root{
+    --bg:#0B0F14; --panel:#0E141B; --border:#2A3340; --ink:#E6EDF3; --muted:#A6ADBA;
+    --accent:#7BD1FF; --accent2:#B58BFF; --green:#28C76F; --red:#FF6B6B; --yellow:#E4B63A;
+    --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.5}
+  header{padding:18px 28px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  header h1{margin:0;font-size:20px;font-weight:700}
+  header .sub{color:var(--muted);font-size:12px;margin-top:4px}
+  nav{display:flex;gap:4px;flex-wrap:wrap}
+  nav button{background:var(--panel);color:var(--ink);border:1px solid var(--border);padding:6px 10px;border-radius:8px;font:inherit;font-size:12px;cursor:pointer}
+  nav button:hover{border-color:var(--accent)}
+  nav button.active{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+  main{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:0;min-height:calc(100vh - 77px)}
+  @media (max-width:1024px){ main{grid-template-columns:1fr} }
+  #canvas{background:var(--bg);padding:16px;overflow:auto;border-right:1px solid var(--border)}
+  #canvas img{max-width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:10px}
+  #side{padding:18px 22px;overflow:auto;max-height:calc(100vh - 77px)}
+  #side h2{font-size:14px;margin:18px 0 8px;color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+  #side h3{font-size:13px;margin:12px 0 4px;color:var(--ink)}
+  #side p, #side li{color:var(--muted);font-size:13px;margin:4px 0}
+  #side code, #side kbd{font-family:var(--mono);font-size:12px;color:var(--accent);background:#0a1118;padding:1px 5px;border-radius:4px;border:1px solid var(--border)}
+  table{width:100%;border-collapse:collapse;margin:8px 0;font-size:12px}
+  table th, table td{border:1px solid var(--border);padding:6px 8px;text-align:left;vertical-align:top}
+  table th{background:#0a1118;color:var(--ink);font-weight:600}
+  table td{color:var(--muted)}
+  details{border:1px solid var(--border);border-radius:8px;margin:6px 0;background:#0a1118}
+  details > summary{cursor:pointer;padding:10px 12px;font-weight:600;color:var(--ink);font-size:13px}
+  details > summary:hover{color:var(--accent)}
+  details[open] > summary{border-bottom:1px solid var(--border);color:var(--accent)}
+  details .body{padding:10px 14px}
+  .pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:600;margin-right:6px}
+  .pill.env{background:#1a2342;color:#8fb3ff;border:1px solid #3a4a7a}
+  .pill.io {background:#0e3a47;color:#7cdef0;border:1px solid #1e6e85}
+  .pill.hal{background:#0e4a56;color:#8eeaf3;border:1px solid #20a4b6}
+  .pill.drv{background:#16324d;color:#9cc2f2;border:1px solid #2f6aa8}
+  .pill.ao {background:#3a1d53;color:#d0a9ff;border:1px solid #a06ecb}
+  .pill.view{background:#153b22;color:#a6e8bd;border:1px solid #3fa862}
+  .pill.mod{background:#2b1553;color:#c9b1f0;border:1px solid #6f4ebd}
+  .pill.out{background:#4a1616;color:#ffb3ad;border:1px solid #c9534b}
+  .pill.pwr{background:#0e3d2d;color:#8de7c4;border:1px solid #1e946c}
+  .pill.mech{background:#3a3118;color:#e4c783;border:1px solid #b08a3a}
+  .pill.log{background:#4a3a10;color:#ffd98a;border:1px solid #d2a93a}
+  footer{padding:14px 28px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .src{font-family:var(--mono);font-size:11px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>KidBytes · Beacon-Locator Puzzle Box</h1>
+    <div class="sub">Conceptual / Functional Architecture — FRDM-MCXA153 · HM-10 · PC Companion &nbsp;·&nbsp; SRS 9.40 / 10 &nbsp;·&nbsp; FRs F1–F8 (39)</div>
+  </div>
+  <nav>
+    <button data-layer="all" class="active">All layers</button>
+    <button data-layer="env">① Environment</button>
+    <button data-layer="io">② Inputs</button>
+    <button data-layer="hal">③ HAL</button>
+    <button data-layer="drv">④ Drivers</button>
+    <button data-layer="ao">⑤ Functional</button>
+    <button data-layer="view">⑥ View</button>
+    <button data-layer="mod">⑦ Model</button>
+    <button data-layer="out">⑧ Outputs</button>
+    <button data-layer="pwr">⑨ Power+WDT</button>
+    <button data-layer="mech">⑩ Mech</button>
+    <button data-layer="log">⑪ Log</button>
+  </nav>
+</header>
+
+<main>
+  <section id="canvas">
+    <img src="conceptual_functional_architecture_desing.png" alt="KidBytes architecture">
+  </section>
+
+  <aside id="side">
+    <h2>How to read this diagram</h2>
+    <p>
+      Each of the 11 zones is explained below in the format
+      <strong style="color:var(--ink)">purpose → depends on (cross-layer) → depends on (intra-layer) → measured number</strong>
+      . The <em>intra-layer</em> line names which modules in the same zone
+      depend on each other — read it to see what can be built and tested in parallel vs. what
+      has a forced ordering. LVGL is <strong style="color:var(--red)">out</strong>: MCXA153 has only
+      <code>36 KiB SRAM</code> (24 + 8 + 4). The real view code (<code>Layer_View_SDK.zip</code>) drives
+      a <code>TFT ILI9341 240×320 RGB565</code> panel over <code>LPSPI</code> with a chunked partial
+      framebuffer.
+      <span class="src">Sources: Product Report §3.1.2 traceability matrix, SRS IEEE 830 9.40/10, MCXA153 Data Sheet, Layer_View_SDK — hal/display.h, drivers/display_drv.c, v_*.c.</span>
+    </p>
+
+    <!-- Layer 1 -->
+    <details open id="lyr-env">
+      <summary><span class="pill env">1</span> ENVIRONMENT — external actors</summary>
+      <div class="body">
+        <p><strong>Purpose.</strong> Everything that exists outside the MCU boundary and generates or receives events. Kids, Admin PC, 5 iBeacons in 5 rooms, reward chamber, and the silicon constraints of the MCU itself.</p>
+        <p><strong>Depends on (cross-layer).</strong> Nothing — this layer is the world. Downstream depends on it.</p>
+        <p><strong>Depends on (intra-layer).</strong> The five actors are independent of each other in normal operation. Two coupling rules: (a) <code>Reward chamber</code> only opens when the kid finishes the route across all five <code>iBeacons</code> (functional sequence, not a build-time dep); (b) the <code>MCU constraints</code> row is the silicon ceiling that bounds what every other layer can do, so it is read-only context for the rest of the diagram.</p>
+        <p><strong>Measured numbers.</strong></p>
+        <ul>
+          <li>Kid press rate: <code>~1 press / 2 s</code> (aperiodic)</li>
+          <li>iBeacon advert period: <code>100 ms</code></li>
+          <li>MCU: <code>Cortex-M33 · 96 MHz · 128 KiB flash · 36 KiB SRAM (24+8+4)</code></li>
+          <li>Silicon facts: <code>NO_FPU</code>, no MPU, no SAU, <code>3 priority bits</code> → 8 exception priorities</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Layer 2 -->
+    <details id="lyr-io">
+      <summary><span class="pill io">2</span> SYSTEM INPUTS — MCU boundary</summary>
+      <div class="body">
+        <p><strong>Purpose.</strong> Everything that crosses into the MCU — buttons, BLE UART, USB-CDC, power bank — plus the explicit timing quality goals this boundary must respect.</p>
+        <p><strong>Depends on (cross-layer).</strong> Environment (1) generates the events; HAL (3) defines how they are read.</p>
+        <p><strong>Depends on (intra-layer).</strong> The four input ports are mutually independent at the electrical level (separate pins, separate peripherals: GPIO3 / LPUART0 / USB / VDD). The <code>Quality goals (timing)</code> row is shared by all four — it is a <em>constraint over the whole layer</em>, not a fifth peer. Concretely: button ISR latency competes for CPU with BLE UART RX, so the worst-case sum (10 + 500 + 80 + 20 = 610 ms) must fit a 1 s scan-task period.</p>
+        <p><strong>Measured numbers.</strong></p>
+        <table>
+          <tr><th>Input</th><th>Deadline</th><th>FR</th></tr>
+          <tr><td>Button → event</td><td><code>≤ 10 ms</code></td><td>F2, F3</td></tr>
+          <tr><td>BLE frame → event</td><td><code>≤ 500 ms</code></td><td>F1</td></tr>
+          <tr><td>Display refresh</td><td><code>≤ 80 ms</code></td><td>F3</td></tr>
+          <tr><td>Log flush</td><td><code>≤ 20 ms</code></td><td>F8</td></tr>
+          <tr><td>HM-10 UART baud</td><td><code>9600 bps</code></td><td>F1</td></tr>
+        </table>
+      </div>
+    </details>
+
+    <!-- Layer 3 -->
+    <details id="lyr-hal">
+      <summary><span class="pill hal">3</span> HAL — portable headers</summary>
+      <div class="body">
+        <p><strong>Purpose.</strong> Seven <code>.h</code> files (<code>button.h · ble.h · usb.h · display.h · lock.h · nvm.h · feedback.h</code>) that define what the firmware can ask hardware to do, independent of vendor.</p>
+        <p><strong>Depends on (cross-layer).</strong> Nothing — pure headers. Downstream drivers implement them; upstream View, Functional and Model use them.</p>
+        <p><strong>Depends on (intra-layer).</strong> The seven HAL headers are <em>fully independent</em> (zero <code>#include</code> between them, only <code>&lt;stdint.h&gt;</code> / <code>&lt;stdbool.h&gt;</code>). One narrow exception: <code>feedback.h</code> shares the LED on PORT3/GPIO3 with <code>button.h</code> wiring, so pin-mux conflicts must be resolved at the board layer — not in HAL.</p>
+        <p><strong>Measured number.</strong> Each HAL header has <code>0 #ifdef</code> blocks; verified against <code>Layer_View_SDK/hal/display.h</code> (only <code>&lt;stdint.h&gt;</code>, no MCU-specific include).</p>
+      </div>
+    </details>
+
+    <!-- Layer 4 -->
+    <details id="lyr-drv">
+      <summary><span class="pill drv">4</span> DRIVERS — MCXA153-specific</summary>
+      <div class="body">
+        <p><strong>Purpose.</strong> Implement each HAL header using one real NXP MCUXpresso SDK call per peripheral. One driver = open / close / read / write / ioctl.</p>
+        <p><strong>Depends on (cross-layer).</strong> HAL headers (3), NXP MCUXpresso SDK, physical peripherals (System Inputs/Outputs).</p>
+        <p><strong>Depends on (intra-layer).</strong> Each driver wraps a different peripheral instance (LPUART0 / LPI2C1 / eFlexPWM0 / flash / GPIO3 / CTIMER / USB), so there is <em>no driver-to-driver C-API call</em>. Two clock-domain dependencies are real and shared at MRCC: every driver assumes <code>FRO_HF → 96 MHz core / 48 MHz peripheral</code> bus is up. <code>display_drv</code> in <code>Layer_View_SDK</code> uses <code>tft_lcd</code> + <code>lpspi_master</code> as a sub-driver — a legitimate intra-layer dependency since both belong to Layer 4.</p>
+        <table>
+          <tr><th>Driver</th><th>SDK / peripheral</th><th>FR</th></tr>
+          <tr><td><code>button_drv</code></td><td><code>fsl_gpio + fsl_lpit</code> on GPIO3</td><td>F2, F3</td></tr>
+          <tr><td><code>ble_drv</code></td><td><code>fsl_lpuart</code> on LPUART0 (HM-10, 9600 bps)</td><td>F1</td></tr>
+          <tr><td><code>usb_drv</code></td><td><code>fsl_*</code> USB CDC</td><td>F5, F6, F8</td></tr>
+          <tr><td><code>display_drv</code></td><td><code>tft_lcd</code> + <code>lpspi_master</code> → ILI9341 240×320 RGB565</td><td>F3</td></tr>
+          <tr><td><code>lock_drv</code></td><td><code>fsl_eflexpwm</code> on eFlexPWM0</td><td>F4</td></tr>
+          <tr><td><code>nvm_drv</code></td><td><code>fsl_flash</code> (session persist)</td><td>F7.2, F7.3</td></tr>
+          <tr><td><code>feedback_drv</code></td><td><code>fsl_gpio + fsl_ctimer</code> LED + buzzer</td><td>F2, F3, F4.3</td></tr>
+        </table>
+      </div>
+    </details>
+
+    <!-- Layer 5 -->
+    <details id="lyr-ao">
+      <summary><span class="pill ao">5</span> FUNCTIONAL — Active Object</summary>
+      <div class="body">
+        <p><strong>Purpose.</strong> Single controller — <code>main_fsm</code> — that owns every state change. Tasks (<code>scan_task</code>, <code>logger_task</code>, <code>event_dispatcher</code>) only hand events to it through a 16-slot priority queue. No shared state, no locks needed.</p>
+        <p><strong>Depends on (cross-layer).</strong> Drivers (4) for incoming events, FreeRTOS task API for scheduling, Model (7) (<code>config_store</code>, <code>location_engine</code>, <code>puzzle_engine</code>) for decisions, View (6) for output cues.</p>
+        <p><strong>Depends on (intra-layer).</strong> Strictly one-direction: <code>scan_task → event_dispatcher → main_fsm → logger_task</code>. The dispatcher is the <em>only</em> thing the FSM blocks on; tasks never call each other directly. The two FSM super-states (<code>ADMIN</code>, <code>FAULT</code>) inherit from the same dispatcher queue, so adding a new event to the FSM never adds a new producer task. Removable: <code>logger_task</code> can be disabled with <code>LogGlobalOff()</code> and the FSM still runs.</p>
+        <p><strong>States.</strong> <code>IDLE → LOCATOR → PUZZLE → UNLOCK_NEXT → FINAL</code>, plus two super-states <code>ADMIN</code> (USB) and <code>FAULT</code> (BLE_LOST, NVM_FAIL, BROWNOUT, ASSERT).</p>
+        <p><strong>Measured numbers.</strong> <code>scan_task</code> period <code>= 250 ms (F1.1)</code>, dispatcher queue <code>= 16 slots</code>, log flush <code>≤ 20 ms</code>.</p>
+      </div>
+    </details>
+
+    <!-- Layer 6 -->
+    <details id="lyr-view">
+      <summary><span class="pill view">6</span> VIEW — raw framebuffer (no LVGL)</summary>
+      <div class="body">
+        <p><strong>Purpose.</strong> Render to the TFT ILI9341 panel and the PC companion. <span style="color:var(--red)">LVGL is not used</span> — its minimum memory footprint (~40 KiB RAM at its smallest configuration) exceeds the MCXA153's entire <code>36 KiB</code> SRAM split across 3 banks. Instead, <code>v_screen</code> writes characters directly through <code>display_put_string</code>, and <code>v_icons</code> uses a small chunked region of <code>lcd_framebuffer</code> with <code>lcd_set_area</code> + <code>lcd_write_pixels</code>.</p>
+        <p><strong>Depends on (cross-layer).</strong> <code>display_drv</code> (Layer 4) for screen output, <code>feedback_drv</code> (Layer 4) for LED + buzzer (today bypassed — <code>v_fb.c</code> writes <code>MRCC0</code>/<code>PORT3</code>/<code>GPIO3</code> directly, see leak #3 in the dependency doc), <code>usb_drv</code> (Layer 4) for the PC link, and the Functional FSM (5) for state-driven calls.</p>
+        <p><strong>Depends on (intra-layer).</strong> The three on-MCU views (<code>V_SCREEN</code>, <code>V_ICONS</code>, <code>V_FB</code>) all share the same TFT panel — they coexist by writing to <em>disjoint screen regions</em>: <code>V_SCREEN</code> draws Room/Next/Puzzle text rows at <code>y = 0, 2h, 4h</code>; <code>V_ICONS</code> draws RSSI bars top-right and battery/fault bottom corners. No view ever reads back what another wrote, so the order of calls within one frame does not matter. <code>V_PC</code> is on a different transport (USB-CDC) and does not touch the TFT path at all.</p>
+        <table>
+          <tr><th>View</th><th>What it renders</th><th>FR</th></tr>
+          <tr><td><code>V_SCREEN</code></td><td>TFT text rows — current room, next target, puzzle hint (<code>display_put_string</code>)</td><td>F3.1–F3.6</td></tr>
+          <tr><td><code>V_ICONS</code></td><td>RSSI bars, room k/5, LOW BAT, FAULT (chunked <code>lcd_framebuffer</code> + <code>lcd_set_area</code>)</td><td>F3.3–F3.5, F7.4</td></tr>
+          <tr><td><code>V_FB</code></td><td>LED + buzzer cues — <code>v_fb_puzzle_cue</code> (10 ms green) and <code>v_fb_unlock_cue</code> (200 ms blue + buzzer)</td><td>F3.2, F4.3</td></tr>
+          <tr><td><code>V_PC</code></td><td>Qt 6.9.2 companion GUI — logs + admin config over USB-CDC</td><td>F5, F6</td></tr>
+        </table>
+        <p><strong>Measured number.</strong> Cue duration <code>v_fb_unlock_cue</code> = <code>200 ms</code> (counted by <code>SysTick</code> 1 ms ticks); puzzle cue = <code>10 ms</code>. TFT panel = <code>240 × 320 RGB565 = 153 600 B</code> total — too large to hold a full FB, hence the chunked write strategy.</p>
+      </div>
+    </details>
+
+    <!-- Layer 7 -->
+    <details id="lyr-mod">
+      <summary><span class="pill mod">7</span> MODEL — host-testable</summary>
+      <div class="body">
+        <p><strong>Purpose.</strong> Pure C modules that do the actual problem-solving. No MCU calls, no <code>fsl_*</code>. Can be unit-tested on the PC with a normal C compiler.</p>
+        <p><strong>Depends on (cross-layer).</strong> Nothing at build time except <code>&lt;stdint.h&gt;</code>/<code>&lt;string.h&gt;</code>. At run time the Functional FSM (5) calls them with commands and reads results.</p>
+        <p><strong>Depends on (intra-layer).</strong> Two real intra-layer dependencies: (a) <code>config_store</code> is read by <code>location_engine</code> (room map), <code>puzzle_engine</code> (answers), <code>route_manager</code> (sequence) and <code>log_model</code> (admin secret) — it is the shared, read-mostly source of truth. (b) <code>route_manager</code> consumes <code>location_engine</code>'s room id to advance its k-of-5 progress. <code>log_model</code> is a sink only — nothing depends on it. None of the five modules has compile-time <code>#include</code> of another — dependencies are passed by function arguments, so each can be unit-tested standalone.</p>
+        <table>
+          <tr><th>Module</th><th>What it computes</th><th>FR</th></tr>
+          <tr><td><code>location_engine</code></td><td>Major/Minor → room + RSSI filter</td><td>F1</td></tr>
+          <tr><td><code>puzzle_engine</code></td><td>sudoku, tic-tac-toe, collect-digits</td><td>F2</td></tr>
+          <tr><td><code>route_manager</code></td><td>k-of-5 wake-on sequence</td><td>F2, F3.4</td></tr>
+          <tr><td><code>config_store</code></td><td>rooms, puzzle answers, WDT kick, admin secret</td><td>F5, F7</td></tr>
+          <tr><td><code>log_model</code></td><td>session log · ordered route times</td><td>F6.3, F7.2</td></tr>
+        </table>
+      </div>
+    </details>
+
+    <!-- Layer 8 -->
+    <details id="lyr-out">
+      <summary><span class="pill out">8</span> SYSTEM OUTPUTS — actuators + log</summary>
+      <div class="body">
+        <p><strong>Purpose.</strong> Physical and logical effects the kid (or the admin) sees.</p>
+        <p><strong>Depends on (cross-layer).</strong> Drivers (4) that push bytes to pins; Model (7) (<code>log_model</code>) that produces the USB log stream; Mechanical (10) for the lock drive latch.</p>
+        <p><strong>Depends on (intra-layer).</strong> The four outputs are <em>physically independent</em> — separate pins, separate peripherals — and can be exercised one at a time. Two soft couplings exist by sequence, not by wire: (a) the <em>Buzzer / LED</em> cue accompanies a successful puzzle and again at the unlock event, so they fire in pairs of frames; (b) the <em>Electronic lock</em> opening at <code>FINAL</code> is the only output that should also produce a <code>USB log</code> CRIT line, so loss of one is detectable from the other.</p>
+        <ul>
+          <li><strong>Electronic lock</strong> — closed by default, opens at <code>FINAL</code> (F4.1, F4.2)</li>
+          <li><strong>Display frames</strong> — refresh <code>≤ 1 s</code> for iconography (F3.3)</li>
+          <li><strong>Buzzer / LED</strong> — puzzle and unlock cues (F3.2, F4.3)</li>
+          <li><strong>USB log stream</strong> — <code>INFO · DEBUG · WARN · ERROR · CRIT</code> (F8)</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Layer 9 -->
+    <details id="lyr-pwr">
+      <summary><span class="pill pwr">9</span> POWER + WATCHDOG — orthogonal</summary>
+      <div class="body">
+        <p><strong>Purpose.</strong> Cross-cutting. Runs alongside <code>main_fsm</code>, never inside it. Governs <code>MRCC</code> clock gates + <code>WWDT</code>.</p>
+        <p><strong>Depends on (cross-layer).</strong> System Inputs (2) for the power-bank rail; HAL/Drivers (3, 4) only as observers (no driver gates clocks for itself); Functional FSM (5) only as a watchdog kicker, not a controller.</p>
+        <p><strong>Depends on (intra-layer).</strong> The three sub-modules form a dominance chain: <code>PWR</code> measures the rail → <code>pwr_fsm</code> chooses Active/Sleep/Deep-Sleep → <code>WWDT</code> only kicks in the Active state. If <code>PWR</code> reports brown-out, <code>pwr_fsm</code> forces Deep-Sleep and the WWDT is held off (per the data sheet). The chain is <em>orthogonal</em> to <code>main_fsm</code>: <code>main_fsm</code> never reads or writes power state directly.</p>
+        <ul>
+          <li><code>PWR</code> — battery + brown-out + LP / deep-sleep (F7.1, F7.4)</li>
+          <li><code>pwr_fsm</code> — orthogonal: <code>Active · Sleep · Deep-Sleep</code></li>
+          <li><code>WWDT</code> — kick <code>≤ 100 ms</code> else reset</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Layer 10 -->
+    <details id="lyr-mech">
+      <summary><span class="pill mech">10</span> MECHANICAL</summary>
+      <div class="body">
+        <p><strong>Purpose.</strong> The physical box — lock + hinge + child-safe enclosure + reward drive latch (F4, F7.1). Not firmware, but the lock and enclosure dimensions constrain the PWM pulse window of <code>lock_drv</code>.</p>
+        <p><strong>Depends on (cross-layer).</strong> System Outputs (8): mechanical only moves when <code>Electronic lock</code> is energised. Drivers (4): <code>lock_drv</code> sets the PWM duty that the servo translates to a latch travel.</p>
+        <p><strong>Depends on (intra-layer).</strong> Single module — no intra-layer dependency. The enclosure and lock share screws/holes, but that is a CAD-level concern, not a firmware one.</p>
+        <p><strong>Measured number.</strong> Latch travel time <code>≤ 500 ms</code>; servo PWM pulse window <code>1 – 2 ms</code> at <code>50 Hz</code> (standard hobby servo). Holds the report's F4 budget.</p>
+      </div>
+    </details>
+
+    <!-- Layer 11 -->
+    <details id="lyr-log">
+      <summary><span class="pill log">11</span> LOG — cross-cutting (F8)</summary>
+      <div class="body">
+        <p><strong>Purpose.</strong> Single <code>log.h</code> API used by every driver, the FSM, and the model. <span style="color:var(--red)"><code>printf</code> is banned</span> — too heavy and not per-subsystem gated.</p>
+        <p><strong>Depends on (cross-layer).</strong> <code>usb_drv</code> (Layer 4) as the byte sink — <code>logger_task</code> empties the ring into USB-CDC. Every other layer is a <em>caller</em> of <code>log.h</code>; the LOG layer never calls them back.</p>
+        <p><strong>Depends on (intra-layer).</strong> One file, one ring buffer, one mutex. The <code>sys</code> tag and <code>level</code> filter are independent dimensions — turning off all <code>DISPLAY</code> messages does not affect <code>POWER</code> messages, and dropping <code>DEBUG</code> globally does not silence <code>CRIT</code>. Concretely: <code>LogSetOutputLevel(DISPLAY, NONE)</code> is local; <code>LogGlobalOff()</code> is global.</p>
+        <p><strong>API.</strong></p>
+<pre style="background:#0a1118;border:1px solid var(--border);border-radius:8px;padding:10px;color:var(--accent);font-size:12px;font-family:var(--mono);overflow-x:auto">
+Log(sys, level, msg);
+LogWithNum(sys, level, msg, n);
+LogSetOutputLevel(sys, level);
+LogGlobalOn();
+LogGlobalOff();
+
+sys   ∈  { SYS, COMMS, DISPLAY, SENSOR, FSM, POWER }
+level ∈  { NONE, INFO, DEBUG, WARN, ERROR, CRIT }
+</pre>
+      </div>
+    </details>
+
+    <h2>How to modify this diagram</h2>
+    <p>
+      Two editable sources ship alongside this HTML:
+    </p>
+    <ul>
+      <li><code>redraw_arch.py</code> — matplotlib source of the PNG you see. <code>python3 redraw_arch.py</code> re-renders the image.</li>
+      <li><code>conceptual_functional_architecture_desing.puml</code> — PlantUML equivalent. <code>java -jar plantuml.jar -tpng conceptual_functional_architecture_desing.puml</code>.</li>
+      <li><code>conceptual_functional_architecture_desing.mmd</code> — Mermaid equivalent. Paste into the <a style="color:var(--accent)" target="_blank" rel="noopener" href="https://mermaid.live/">Mermaid Live Editor</a>.</li>
+    </ul>
+    <p>All three files use only Traceability-Matrix labels (no invented words).</p>
+  </aside>
+</main>
+
+<footer>
+  <div>Redrawn from <code>KidBytesProductReport.pdf §3.1 + §3.1.2</code> · SRS 9.40 / 10 · May 2026</div>
+  <div class="src">sources: conceptual_functional_architecture_desing.{png,puml,mmd,py} · Moises-Baseline-Protocol.md v2 · mymind.md</div>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('nav button');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.getAttribute('data-layer');
+      document.querySelectorAll('#side details').forEach(d => {
+        if (target === 'all') { d.open = (d.id === 'lyr-env'); return; }
+        const match = d.id === 'lyr-' + target;
+        d.open = match;
+        if (match) d.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  });
+</script>
+
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="transform:translate(-${scrollX}px,-${scrollY}px);transform-origin:top left">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+</script></body>
+</html>
