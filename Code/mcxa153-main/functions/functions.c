@@ -47,10 +47,10 @@ void led_red_off(void)
 void box_init(void) {
     //initialize gpio
     init_button();
-    relay_init();
-    relay_set(1);
+    solenoid_init();
+    solenoid_lock(1);
 
-    printf("Relay + button initialized! \r\n");
+    printf("Solenoid init & locked + button initialized! \r\n");
 }
 
 //state functions
@@ -104,8 +104,8 @@ void box_game_hints(void) {
 void box_game_final(void) {
     printf("All ibeacons found. Unlocking box! /r/n");
 
-    relay_set(0);
-    printf("Relay opened /r/n");
+    solenoid_lock(0);
+    printf("Solenoid powered /r/n");
 }
 void box_admin_settings(void) {}
 void box_admin_connect(void) {}
@@ -253,5 +253,12 @@ void GPIO3_IRQHandler(void) {
 
         buttonB_count++;
         printf("Button B is pressed \r\n");
+    }
+}
+
+//  ibeacon functions 
+void atSendCommand(char *atCommand) {
+    while(*atCommand) {
+        lpuart2_putchar(*atCommand++);
     }
 }

@@ -1,4 +1,5 @@
 #include <stdbool.h>
+#include "lpuart2.h"
 
 //debug functions
 void led_init(void);
@@ -70,6 +71,9 @@ bool e_all_ibeacons_found(void);
 void e_draw_distance(void);
 
 void e_game_over(void);
+
+//  ibeacon functions
+void atSendCommand(char *atCommand);
 
 extern int BOX_CURRENT_STATE;
 extern int BOX_MODE;

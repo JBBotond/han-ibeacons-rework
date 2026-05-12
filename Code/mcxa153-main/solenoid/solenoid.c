@@ -1,7 +1,7 @@
 #include "board.h"
 #include <stdbool.h>
 
-void relay_init(void) {
+void solenoid_init(void) {
     MRCC0->MRCC_GLB_CC0_SET = MRCC_MRCC_GLB_CC0_PORT2(1);
     MRCC0->MRCC_GLB_CC1_SET = MRCC_MRCC_GLB_CC1_GPIO2(1);
 
@@ -14,7 +14,7 @@ void relay_init(void) {
 
     GPIO2->PDDR |= (1<<7);
 }
-void relay_set(bool logicLevel) {
+void solenoid_lock(bool logicLevel) {
     if(logicLevel == false) 
         GPIO2->PSOR |= (1<<7);
     if(logicLevel == true) 

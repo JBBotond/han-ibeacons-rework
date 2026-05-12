@@ -1,9 +1,9 @@
 #include <board.h>
 #include <stdio.h>
 
-#include "serial/serial.h"
+#include "serial.h"
+#include "lpuart2.h"
 #include "functions/functions.h"
-#include "serial2lpuart/lpuart2.h"
 #include "solenoid/solenoid.h"
 
 // -----------------------------------------------------------------------------
@@ -114,6 +114,8 @@ int main(void)
                 box_game_final();
 
                 e_game_over();
+
+                //  wait before resetting and locking again?
 
                 BOX_CURRENT_STATE = BOX_SELECT_MODE;
 

@@ -1,4 +1,4 @@
 #include <stdbool.h>
 
-void relay_set(bool logicLevel);
-void relay_init(void);
+void solenoid_lock(bool logicLevel);
+void solenoid_init(void);
