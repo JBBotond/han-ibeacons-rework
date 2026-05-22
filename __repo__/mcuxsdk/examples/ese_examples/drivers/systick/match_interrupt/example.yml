@@ -1,0 +1,15 @@
+systick_match_interrupt:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/drivers/systick/match_interrupt
+    project-root-path: boards/${board}/ese_examples/drivers/systick/match_interrupt/${multicore_foldername}
+    document:
+      name: systick_match_interrupt${core_id_suffix_name}
+      category: ese_examples/drivers/systick
+      brief: SysTick Match interrupt example.
+      example_readme:
+      - examples/ese_examples/drivers/systick/match_interrupt/readme.md
+      - ${board_root}/${board}/ese_examples/drivers/systick/match_interrupt/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

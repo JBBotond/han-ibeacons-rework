@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+general_template:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/general/template
+    project-root-path: boards/${board}/ese_examples/general/template/${multicore_foldername}
+    document:
+      name: general_template${core_id_suffix_name}
+      category: ese_examples/general
+      brief: Use this project as a template to create your own project.
+      example_readme:
+      - examples/ese_examples/general/template/readme.md
+      - ${board_root}/${board}/ese_examples/general/template/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

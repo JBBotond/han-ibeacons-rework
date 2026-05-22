@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+general_critical_section:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/general/critical_section
+    project-root-path: boards/${board}/ese_examples/general/critical_section/${multicore_foldername}
+    document:
+      name: general_critical_section${core_id_suffix_name}
+      category: ese_examples/general
+      brief: Critical section example.
+      example_readme:
+      - examples/ese_examples/general/critical_section/readme.md
+      - ${board_root}/${board}/ese_examples/general/critical_section/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

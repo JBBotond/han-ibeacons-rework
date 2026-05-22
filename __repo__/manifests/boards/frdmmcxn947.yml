@@ -1,0 +1,19 @@
+example_list:
+- ese_common
+- ese_examples
+- ese_mic5
+- ota_examples
+- lvgl_examples
+- freertos_examples
+repo_list:
+- core
+- CMSIS
+- mcuxsdk-tool-data
+- mcu-sdk-components
+- mcu-sdk-doc
+- mcu-sdk-examples
+- mcux-devices-mcx
+- freertos-kernel
+- mcux-freertos-drivers
+- usb
+- lvgl

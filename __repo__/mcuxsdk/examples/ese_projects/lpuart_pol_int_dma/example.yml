@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+lpuart_pol_int_dma:
+  section-type: application
+  contents:
+    meta_path: examples/ese_projects/lpuart_pol_int_dma
+    project-root-path: boards/${board}/ese_projects/lpuart_pol_int_dma/${multicore_foldername}
+    document:
+      name: lpuart_pol_int_dma${core_id_suffix_name}
+      category: ese_projects
+      brief: Demonstration project for LPUART peripheral using polling, interrupt, and DMA transfer methods.
+      example_readme:
+      - examples/ese_projects/lpuart_pol_int_dma/readme.md
+      - ${board_root}/${board}/ese_projects/lpuart_pol_int_dma/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

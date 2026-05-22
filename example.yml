@@ -1,0 +1,15 @@
+tft_lcd_ili9341_240x320_animation:
+  boards:
+    frdmmcxa153: []
+  contents:
+    document:
+      brief: TFT LCD ILI9341 240x320 animation example
+      category: ese_projects/tft_lcd/ili9341_240x320
+      example_readme:
+      - examples/ese_projects/tft_lcd/ili9341_240x320/animation/readme.md
+      - ${board_root}/${board}/ese_projects/tft_lcd/ili9341_240x320/animation/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+      name: tft_lcd_ili9341_240x320_animation${core_id_suffix_name}
+    meta_path: examples/ese_projects/tft_lcd/ili9341_240x320/animation
+    project-root-path: boards/${board}/ese_projects/tft_lcd/ili9341_240x320/animation/${multicore_foldername}
+  section-type: freestanding_application

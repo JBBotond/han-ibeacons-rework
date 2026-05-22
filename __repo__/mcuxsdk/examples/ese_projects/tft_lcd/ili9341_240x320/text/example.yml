@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+tft_lcd_ili9341_240x320_text:
+  section-type: application
+  contents:
+    meta_path: examples/ese_projects/tft_lcd/ili9341_240x320/text
+    project-root-path: boards/${board}/ese_projects/tft_lcd/ili9341_240x320/text/${multicore_foldername}
+    document:
+      name: tft_lcd_ili9341_240x320_text${core_id_suffix_name}
+      category: ese_projects/tft_lcd/ili9341_240x320
+      brief: TFT LCD ILI9341 240x320 text example
+      example_readme:
+      - examples/ese_projects/tft_lcd/ili9341_240x320/text/readme.md
+      - ${board_root}/${board}/ese_projects/tft_lcd/ili9341_240x320/text/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

@@ -1,0 +1,108 @@
+manifest:
+  remotes:
+  - name: nxp
+    url-base: https://github.com/NXP
+  - name: nxp-zephyr
+    url-base: https://github.com/nxp-zephyr
+  - name: nxp-mcuxpresso
+    url-base: https://github.com/nxp-mcuxpresso
+  defaults:
+    remote: nxp-mcuxpresso
+  projects:
+  - name: freertos-kernel
+    path: mcuxsdk/rtos/freertos/freertos-kernel
+    revision: 3ca0b2c5eb9ccbb45efaff2bb9f1e0b22c462ce8
+    groups:
+    - freertos-kernel
+    - rtos
+    - ble_nxp
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: mcux_main
+      branch_flow: true
+      display_name: FreeRTOS
+      description: FreeRTOS
+  - name: mcux-freertos-drivers
+    userdata:
+      owner: david.jurajda@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: FreeRTOS Drivers
+      description: FreeRTOS peripheral drivers for MCUXpresso SDK
+    path: mcuxsdk/rtos/freertos/freertos-drivers
+    revision: 845ff93b52bbc1852c5b9911e74524f6baed2ba6
+    groups:
+    - rtos
+    - freertos
+  - name: corepkcs11
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: mcux_main
+      branch_flow: true
+      display_name: FreeRTOS corePKCS11
+      description: 'PKCS #11 key management library'
+    path: mcuxsdk/rtos/freertos/corepkcs11
+    revision: fe8c48bb4415bb3ba6962a95d36297cc1881779e
+    groups:
+    - freertos
+    - aws_iot
+  - name: coremqtt
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: mcux_main
+      branch_flow: true
+      display_name: FreeRTOS coreMQTT
+      description: MQTT publish/subscribe messaging library
+    path: mcuxsdk/rtos/freertos/coremqtt
+    revision: 6e8d9fafd0590a726c7ecb9bc44b9184bb08bfd6
+    groups:
+    - freertos
+    - aws_iot
+  - name: corejson
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: mcux_main
+      branch_flow: true
+      display_name: FreeRTOS coreJSON
+      description: JSON parser
+    path: mcuxsdk/rtos/freertos/corejson
+    revision: 00643ef8cf30bd55ab9ba0b2d3665afeb3634747
+    groups:
+    - freertos
+    - aws_iot
+  - name: corehttp
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: mcux_main
+      branch_flow: true
+      display_name: coreHTTP
+      description: coreHTTP
+    path: mcuxsdk/rtos/freertos/corehttp
+    revision: ef4a49c3208eb6487caaa5ba451989203c1911c4
+    groups:
+    - freertos
+    - aws_iot
+  - name: backoffalgorithm
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: mcux_main
+      branch_flow: true
+      display_name: FreeRTOS backoffalgorithm
+      description: Algorithm for calculating exponential backoff with jitter for network
+        retry attempts.
+    path: mcuxsdk/rtos/freertos/backoffalgorithm
+    revision: 45f3ab4a953aa7d77945f2537419e2f3833c4cf1
+    groups:
+    - freertos
+    - aws_iot
+  - name: freertos-plus-tcp
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: mcux_main
+      branch_flow: true
+      display_name: freertos-plus-tcp
+      description: FreeRTOS-Plus-TCP Library
+    path: mcuxsdk/rtos/freertos/freertos-plus-tcp
+    revision: 9c5fe2d1eb1c460f0a130ee835397e3b2f5622c8
+    groups:
+    - freertos

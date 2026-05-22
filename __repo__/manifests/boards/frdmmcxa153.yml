@@ -1,0 +1,16 @@
+example_list:
+- ese_common
+- ese_examples
+- ese_projects
+# - ese_mic5
+# - ese_private
+repo_list:
+- core
+- CMSIS
+- mcuxsdk-tool-data
+- mcu-sdk-components
+- mcu-sdk-doc
+- mcu-sdk-examples
+- mcux-devices-mcx
+- freertos-kernel
+- usb

@@ -1,0 +1,8 @@
+D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/core_cm33.h:2358:22:__NVIC_EnableIRQ	16	static
+D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/core_cm33.h:2449:22:__NVIC_ClearPendingIRQ	16	static
+D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/core_cm33.h:2555:22:__NVIC_SetPriority	16	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/serial/serial.c:58:6:serial_init	64	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/serial/serial.c:150:6:serial_putchar	16	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/serial/serial.c:160:5:serial_getchar	16	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/serial/serial.c:173:10:serial_rxcnt	8	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/serial/serial.c:178:6:LPUART0_IRQHandler	16	static

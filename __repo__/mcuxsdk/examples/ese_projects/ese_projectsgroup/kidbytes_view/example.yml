@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+kidbytes_view:
+  section-type: application
+  contents:
+    meta_path: examples/ese_projects/kidbytes_view
+    project-root-path: boards/${board}/ese_projects/kidbytes_view/${multicore_foldername}
+    document:
+      name: kidbytes_view${core_id_suffix_name}
+      category: ese_projects
+      brief: TFT LCD display viewer (kidbytes_view) for FRDM-MCXA153.
+      example_readme:
+      - examples/ese_projects/kidbytes_view/readme.md
+      - ${board_root}/${board}/ese_projects/kidbytes_view/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

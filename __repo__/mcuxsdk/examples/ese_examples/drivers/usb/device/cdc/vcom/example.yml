@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+usb_device_cdc_vcom:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/drivers/usb/device/cdc/vcom
+    project-root-path: boards/${board}/ese_examples/drivers/usb/device/cdc/vcom/${multicore_foldername}
+    document:
+      name: usb_device_cdc_vcom${core_id_suffix_name}
+      category: ese_examples/drivers/usb
+      brief: USB Device CDC VCOM project
+      example_readme:
+      - ${board_root}/${board}/ese_examples/drivers/usb/device/cdc/vcom/example_board_readme.md
+  boards:
+    frdmmcxa153: []

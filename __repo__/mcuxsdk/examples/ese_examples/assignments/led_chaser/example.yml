@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+assignments_led_chaser:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/assignments/led_chaser
+    project-root-path: boards/${board}/ese_examples/assignments/led_chaser/${multicore_foldername}
+    document:
+      name: assignments_led_chaser${core_id_suffix_name}
+      category: ese_examples/assignments
+      brief: Assignment - LED chaser using GPIO outputs and inputs
+      example_readme:
+      - examples/ese_examples/assignments/led_chaser/readme.md
+      - ${board_root}/${board}/ese_examples/assignments/led_chaser/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

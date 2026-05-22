@@ -1,0 +1,19 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "drivers/xbar",
+		"source" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/drivers/xbar"
+	}
+}

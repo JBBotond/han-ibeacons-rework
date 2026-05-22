@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+wwdt_reset:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/drivers/wwdt/reset
+    project-root-path: boards/${board}/ese_examples/drivers/wwdt/reset/${multicore_foldername}
+    document:
+      name: wwdt_reset${core_id_suffix_name}
+      category: ese_examples/drivers/wwdt
+      brief: Windowed Watchdog Timer reset example.
+      example_readme:
+      - examples/ese_examples/drivers/wwdt/reset/readme.md
+      - ${board_root}/${board}/ese_examples/drivers/wwdt/reset/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []
+

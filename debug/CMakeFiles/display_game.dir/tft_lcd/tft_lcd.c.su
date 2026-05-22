@@ -1,0 +1,13 @@
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd/tft_lcd.c:158:6:lcd_init	40	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd/tft_lcd.c:248:6:lcd_backlight	16	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd/tft_lcd.c:265:6:lcd_inverse	24	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd/tft_lcd.c:295:6:lcd_orientation	24	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd/tft_lcd.c:367:6:lcd_set_area	32	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd/tft_lcd.c:405:6:lcd_write_pixels	24	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd/tft_lcd.c:426:6:lcd_clear	32	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd/tft_lcd.c:455:6:lcd_get_touch	88	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd/tft_lcd.c:581:6:lcd_set_font	16	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd/tft_lcd.c:604:10:lcd_put_char	64	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd/tft_lcd.c:701:6:lcd_put_string	40	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd/tft_lcd.c:731:6:lcd_draw_bitmap	24	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd/tft_lcd.c:750:6:lcd_draw_animation	40	static

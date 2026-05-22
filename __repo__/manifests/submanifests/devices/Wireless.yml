@@ -1,0 +1,23 @@
+manifest:
+  remotes:
+  - name: nxp
+    url-base: https://github.com/NXP
+  - name: nxp-zephyr
+    url-base: https://github.com/nxp-zephyr
+  - name: nxp-mcuxpresso
+    url-base: https://github.com/nxp-mcuxpresso
+  defaults:
+    remote: nxp-mcuxpresso
+  projects:
+  - name: mcux-devices-wireless
+    revision: 6ac686a5767a2d2d9449f894b8ac5ed87f35043d
+    path: mcuxsdk/devices/Wireless
+    groups:
+    - core
+    - ble_nxp
+    userdata:
+      track_branch: main
+      branch_flow: true
+      display_name: Wireless Series Device Files
+      description: Device system files, template files, IDE related startup and linker
+        files.

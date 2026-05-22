@@ -1,0 +1,4 @@
+D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/core_cm33.h:2555:22:__NVIC_SetPriority	16	static
+D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/core_cm33.h:3108:26:SysTick_Config	16	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/main.c:75:5:main	24	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/main.c:131:6:SysTick_Handler	4	static

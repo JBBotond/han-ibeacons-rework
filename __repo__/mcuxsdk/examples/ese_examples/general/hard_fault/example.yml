@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+general_hard_fault:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/general/hard_fault
+    project-root-path: boards/${board}/ese_examples/general/hard_fault/${multicore_foldername}
+    document:
+      name: general_hard_fault${core_id_suffix_name}
+      category: ese_examples/general
+      brief: Hard fault examples that should be solved in order to make the green LED blink.
+      example_readme:
+      - examples/ese_examples/general/hard_fault/readme.md
+      - ${board_root}/${board}/ese_examples/general/hard_fault/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

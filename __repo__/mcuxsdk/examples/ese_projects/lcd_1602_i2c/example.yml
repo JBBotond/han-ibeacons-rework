@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+lcd_1602_i2c:
+  section-type: application
+  contents:
+    meta_path: examples/ese_projects/fatfs/bitbanging
+    project-root-path: boards/${board}/ese_projects/fatfs/bitbanging/${multicore_foldername}
+    document:
+      name: lcd_1602_i2c${core_id_suffix_name}
+      category: ese_projects/lcd_1602_i2c
+      brief: LCD 16x2 I2C example
+      example_readme:
+      - examples/ese_projects/lcd_1602_i2c/readme.md
+      - ${board_root}/${board}/ese_projects/lcd_1602_i2c/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

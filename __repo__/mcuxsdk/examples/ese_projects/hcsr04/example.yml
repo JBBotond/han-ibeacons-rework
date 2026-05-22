@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+hcsr04:
+  section-type: application
+  contents:
+    meta_path: examples/ese_projects/hcsr04
+    project-root-path: boards/${board}/ese_projects/hcsr04/${multicore_foldername}
+    document:
+      name: hcsr04${core_id_suffix_name}
+      category: ese_projects
+      brief: HC-SR04 project to measure the distance to an object. The project demonstrates three different solutions.
+      example_readme:
+      - examples/ese_projects/hcsr04/readme.md
+      - ${board_root}/${board}/ese_projects/hcsr04/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

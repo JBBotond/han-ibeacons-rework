@@ -1,0 +1,4 @@
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/fifo/fifo.c:35:6:f_init	24	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/fifo/fifo.c:59:6:f_push	32	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/fifo/fifo.c:88:6:f_pop	32	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/fifo/fifo.c:117:17:f_cnt	16	static

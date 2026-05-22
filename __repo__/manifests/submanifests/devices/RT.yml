@@ -1,0 +1,22 @@
+manifest:
+  remotes:
+  - name: nxp
+    url-base: https://github.com/NXP
+  - name: nxp-zephyr
+    url-base: https://github.com/nxp-zephyr
+  - name: nxp-mcuxpresso
+    url-base: https://github.com/nxp-mcuxpresso
+  defaults:
+    remote: nxp-mcuxpresso
+  projects:
+  - name: mcux-devices-rt
+    path: mcuxsdk/devices/RT
+    revision: 69824b95510a9aab35d843ace1365dc62aa3b4d4
+    groups:
+    - core
+    userdata:
+      track_branch: main
+      branch_flow: true
+      display_name: i.MX RT Series Device Files
+      description: Device system files, template files, IDE related startup and linker
+        files.

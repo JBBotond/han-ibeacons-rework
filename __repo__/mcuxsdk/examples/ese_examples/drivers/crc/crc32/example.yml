@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+crc_crc32:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/drivers/crc/crc32
+    project-root-path: boards/${board}/ese_examples/drivers/crc/crc32/${multicore_foldername}
+    document:
+      name: crc_crc32${core_id_suffix_name}
+      category: ese_examples/drivers/crc
+      brief: CRC-32 example.
+      example_readme:
+      - examples/ese_examples/drivers/crc/crc32/readme.md
+      - ${board_root}/${board}/ese_examples/drivers/crc/crc32/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []
+

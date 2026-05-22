@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+gpio_input_interrupt:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/drivers/gpio/input_interrupt
+    project-root-path: boards/${board}/ese_examples/drivers/gpio/input_interrupt/${multicore_foldername}
+    document:
+      name: gpio_input_interrupt${core_id_suffix_name}
+      category: ese_examples/drivers/gpio
+      brief: GPIO Input interrupt example.
+      example_readme:
+      - examples/ese_examples/drivers/gpio/input_interrupt/readme.md
+      - ${board_root}/${board}/ese_examples/drivers/gpio/input_interrupt/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

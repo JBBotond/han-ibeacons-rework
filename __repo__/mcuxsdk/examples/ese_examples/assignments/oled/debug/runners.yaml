@@ -1,0 +1,29 @@
+# Available runners configured by board.cmake.
+runners:
+- linkserver
+- jlink
+
+# Default flash runner if --runner is not given.
+flash-runner: linkserver
+
+# Default debug runner if --runner is not given.
+debug-runner: linkserver
+
+# Common runner configuration values.
+config:
+  board_dir: D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/examples/_boards/frdmmcxa153
+  # Build outputs:
+  bin_file: frdmmcxa153_assignments_oled.bin
+  elf_file: frdmmcxa153_assignments_oled.elf
+  hex_file: frdmmcxa153_assignments_oled.hex
+  # Host tools:
+  gdb: C:/Users/ADMIN/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/arm-none-eabi-gdb.exe
+
+# Runner specific arguments
+args:
+  linkserver:
+    - --dt-flash=y
+    - --device=MCXA153:FRDM-MCXA153
+  jlink:
+    - --dt-flash=y
+    - --device=MCXA153

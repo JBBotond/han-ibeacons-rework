@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+fatfs_bitbanging:
+  section-type: application
+  contents:
+    meta_path: examples/ese_projects/fatfs/bitbanging
+    project-root-path: boards/${board}/ese_projects/fatfs/bitbanging/${multicore_foldername}
+    document:
+      name: fatfs_bitbanging${core_id_suffix_name}
+      category: ese_projects/fatfs
+      brief: FatFS SDCARD bitbanging example
+      example_readme:
+      - examples/ese_projects/fatfs/bitbanging/readme.md
+      - ${board_root}/${board}/ese_projects/fatfs/bitbanging/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

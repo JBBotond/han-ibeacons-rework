@@ -1,0 +1,1632 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "display_game.elf"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"project",
+			"add_link_options",
+			"include",
+			"target_link_libraries",
+			"_mcux_set_libs",
+			"_mcux_add_ld_library",
+			"mcux_add_configuration",
+			"mcux_add_armgcc_configuration",
+			"target_include_directories",
+			"_mcux_add_specific_include",
+			"mcux_add_include",
+			"target_sources",
+			"mcux_add_source"
+		],
+		"files" : 
+		[
+			"d:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/cmake/extension/mcux.cmake",
+			"CMakeLists.txt",
+			"d:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/cmake/toolchain/armgcc.cmake",
+			"d:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/cmake/toolchain/toolchain.cmake",
+			"d:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/cmake/extension/basic_settings.cmake",
+			"d:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/cmake/extension/function.cmake",
+			"D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/configuration/mcx.cmake",
+			"D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/shared.cmake",
+			"D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153/CMakeLists.txt",
+			"D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/arm/device_header.cmake",
+			"D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/CMakeLists.txt",
+			"D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/cmake/extension/kconfig.cmake",
+			"D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/cmake/extension/mcux_version_header.cmake",
+			"D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/components/misc_utilities/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 187,
+				"parent" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"file" : 0,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 9,
+				"parent" : 4
+			},
+			{
+				"file" : 4,
+				"parent" : 5
+			},
+			{
+				"command" : 3,
+				"file" : 4,
+				"line" : 40,
+				"parent" : 6
+			},
+			{
+				"file" : 3,
+				"parent" : 7
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 65,
+				"parent" : 8
+			},
+			{
+				"file" : 2,
+				"parent" : 9
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 69,
+				"parent" : 10
+			},
+			{
+				"file" : 8
+			},
+			{
+				"command" : 3,
+				"file" : 8,
+				"line" : 11,
+				"parent" : 12
+			},
+			{
+				"file" : 7,
+				"parent" : 13
+			},
+			{
+				"command" : 3,
+				"file" : 7,
+				"line" : 6,
+				"parent" : 14
+			},
+			{
+				"file" : 6,
+				"parent" : 15
+			},
+			{
+				"command" : 8,
+				"file" : 6,
+				"line" : 18,
+				"parent" : 16
+			},
+			{
+				"command" : 7,
+				"file" : 5,
+				"line" : 878,
+				"parent" : 17
+			},
+			{
+				"command" : 6,
+				"file" : 5,
+				"line" : 864,
+				"parent" : 18
+			},
+			{
+				"command" : 5,
+				"file" : 5,
+				"line" : 727,
+				"parent" : 19
+			},
+			{
+				"command" : 4,
+				"file" : 5,
+				"line" : 2354,
+				"parent" : 20
+			},
+			{
+				"command" : 4,
+				"file" : 5,
+				"line" : 2356,
+				"parent" : 20
+			},
+			{
+				"command" : 4,
+				"file" : 5,
+				"line" : 2358,
+				"parent" : 20
+			},
+			{
+				"command" : 3,
+				"file" : 8,
+				"line" : 7,
+				"parent" : 12
+			},
+			{
+				"file" : 9,
+				"parent" : 24
+			},
+			{
+				"command" : 11,
+				"file" : 9,
+				"line" : 7,
+				"parent" : 25
+			},
+			{
+				"command" : 10,
+				"file" : 5,
+				"line" : 424,
+				"parent" : 26
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 379,
+				"parent" : 27
+			},
+			{
+				"command" : 11,
+				"file" : 9,
+				"line" : 8,
+				"parent" : 25
+			},
+			{
+				"command" : 10,
+				"file" : 5,
+				"line" : 424,
+				"parent" : 29
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 379,
+				"parent" : 30
+			},
+			{
+				"file" : 10
+			},
+			{
+				"command" : 11,
+				"file" : 10,
+				"line" : 88,
+				"parent" : 32
+			},
+			{
+				"command" : 10,
+				"file" : 5,
+				"line" : 424,
+				"parent" : 33
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 379,
+				"parent" : 34
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 379,
+				"parent" : 34
+			},
+			{
+				"command" : 11,
+				"file" : 1,
+				"line" : 44,
+				"parent" : 0
+			},
+			{
+				"command" : 10,
+				"file" : 5,
+				"line" : 424,
+				"parent" : 37
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 379,
+				"parent" : 38
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 379,
+				"parent" : 38
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 379,
+				"parent" : 38
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 379,
+				"parent" : 38
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 379,
+				"parent" : 38
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 379,
+				"parent" : 38
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 379,
+				"parent" : 38
+			},
+			{
+				"command" : 11,
+				"file" : 1,
+				"line" : 56,
+				"parent" : 0
+			},
+			{
+				"command" : 10,
+				"file" : 5,
+				"line" : 424,
+				"parent" : 46
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 379,
+				"parent" : 47
+			},
+			{
+				"command" : 9,
+				"file" : 5,
+				"line" : 379,
+				"parent" : 47
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 284,
+				"parent" : 1
+			},
+			{
+				"file" : 11,
+				"parent" : 50
+			},
+			{
+				"command" : 13,
+				"file" : 11,
+				"line" : 548,
+				"parent" : 51
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 52
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 290,
+				"parent" : 1
+			},
+			{
+				"file" : 12,
+				"parent" : 54
+			},
+			{
+				"command" : 13,
+				"file" : 12,
+				"line" : 60,
+				"parent" : 55
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 56
+			},
+			{
+				"command" : 13,
+				"file" : 9,
+				"line" : 4,
+				"parent" : 25
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 58
+			},
+			{
+				"command" : 13,
+				"file" : 9,
+				"line" : 13,
+				"parent" : 25
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 101
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 101
+			},
+			{
+				"command" : 13,
+				"file" : 9,
+				"line" : 32,
+				"parent" : 25
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 104
+			},
+			{
+				"command" : 13,
+				"file" : 10,
+				"line" : 14,
+				"parent" : 32
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 106
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 106
+			},
+			{
+				"command" : 13,
+				"file" : 10,
+				"line" : 25,
+				"parent" : 32
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 109
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 109
+			},
+			{
+				"command" : 13,
+				"file" : 10,
+				"line" : 51,
+				"parent" : 32
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 112
+			},
+			{
+				"command" : 13,
+				"file" : 10,
+				"line" : 72,
+				"parent" : 32
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 114
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 114
+			},
+			{
+				"file" : 13
+			},
+			{
+				"command" : 13,
+				"file" : 13,
+				"line" : 8,
+				"parent" : 117
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 118
+			},
+			{
+				"command" : 13,
+				"file" : 13,
+				"line" : 14,
+				"parent" : 117
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 120
+			},
+			{
+				"command" : 13,
+				"file" : 13,
+				"line" : 19,
+				"parent" : 117
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 122
+			},
+			{
+				"command" : 13,
+				"file" : 1,
+				"line" : 19,
+				"parent" : 0
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			},
+			{
+				"command" : 12,
+				"file" : 5,
+				"line" : 232,
+				"parent" : 124
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -include D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/debug/mcux_config.h -include D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/debug/mcuxsdk_version.h --specs=nano.specs -Wall -fno-common -ffunction-sections -fdata-sections -fno-builtin -mthumb -mapcs -std=gnu99 -Werror -fstack-usage -mcpu=cortex-m33+nodsp -mfloat-abi=soft -DCPU_MCXA153VLH -DMCXA153_SERIES -g -O0 -D__STARTUP_CLEAR_BSS -DDEBUG -DMCUX_META_BUILD -DMCUXPRESSO_SDK"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 28,
+					"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153"
+				},
+				{
+					"backtrace" : 31,
+					"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph"
+				},
+				{
+					"backtrace" : 35,
+					"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include"
+				},
+				{
+					"backtrace" : 36,
+					"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/m-profile"
+				},
+				{
+					"backtrace" : 39,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/board"
+				},
+				{
+					"backtrace" : 40,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/fifo"
+				},
+				{
+					"backtrace" : 41,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/leds"
+				},
+				{
+					"backtrace" : 42,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/resources"
+				},
+				{
+					"backtrace" : 43,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/serial"
+				},
+				{
+					"backtrace" : 44,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd"
+				},
+				{
+					"backtrace" : 45,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/simonsaid"
+				},
+				{
+					"backtrace" : 48,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tools"
+				},
+				{
+					"backtrace" : 49,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				44,
+				54,
+				55,
+				58,
+				60,
+				62,
+				63,
+				65,
+				67,
+				69,
+				70,
+				72,
+				74,
+				77
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -include D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/debug/mcux_config.h -include D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/debug/mcuxsdk_version.h -mthumb -mcpu=cortex-m33+nodsp -mfloat-abi=soft -DCPU_MCXA153VLH -DMCXA153_SERIES -g -D__STARTUP_CLEAR_BSS -DMCUXPRESSO_SDK"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 28,
+					"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153"
+				},
+				{
+					"backtrace" : 31,
+					"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph"
+				},
+				{
+					"backtrace" : 35,
+					"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include"
+				},
+				{
+					"backtrace" : 36,
+					"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/m-profile"
+				},
+				{
+					"backtrace" : 39,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/board"
+				},
+				{
+					"backtrace" : 40,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/fifo"
+				},
+				{
+					"backtrace" : 41,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/leds"
+				},
+				{
+					"backtrace" : 42,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/resources"
+				},
+				{
+					"backtrace" : 43,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/serial"
+				},
+				{
+					"backtrace" : 44,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tft_lcd"
+				},
+				{
+					"backtrace" : 45,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/simonsaid"
+				},
+				{
+					"backtrace" : 48,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/tools"
+				},
+				{
+					"backtrace" : 49,
+					"path" : "D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game"
+				}
+			],
+			"language" : "ASM",
+			"sourceIndexes" : 
+			[
+				46,
+				56
+			]
+		}
+	],
+	"id" : "display_game::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-include D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/debug/mcux_config.h -include D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/debug/mcuxsdk_version.h --specs=nano.specs -Wall -fno-common -ffunction-sections -fdata-sections -fno-builtin -mthumb -mapcs -std=gnu99 -Werror -fstack-usage -mcpu=cortex-m33+nodsp -mfloat-abi=soft -DCPU_MCXA153VLH -DMCXA153_SERIES -g -O0 -D__STARTUP_CLEAR_BSS -DDEBUG -DMCUX_META_BUILD -DMCUXPRESSO_SDK",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "--specs=nosys.specs -Wall -fno-common -ffunction-sections -fdata-sections -fno-builtin -mthumb -mapcs -Wl,--gc-sections -Wl,-static -Wl,--print-memory-usage -Xlinker -Map=output.map -mcpu=cortex-m33+nodsp -mfloat-abi=soft -g -T D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153/gcc/MCXA153_flash.ld",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "-Wl,--no-warn-rwx-segments",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 21,
+				"fragment" : "-Wl,--start-group",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 22,
+				"fragment" : "-lm -lc -lgcc -lnosys",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 23,
+				"fragment" : "-Wl,--end-group",
+				"role" : "libraries"
+			}
+		],
+		"language" : "C"
+	},
+	"linkLibraries" : 
+	[
+		{
+			"backtrace" : 21,
+			"fragment" : "-Wl,--start-group"
+		},
+		{
+			"backtrace" : 22,
+			"fragment" : "-lm -lc -lgcc -lnosys"
+		},
+		{
+			"backtrace" : 23,
+			"fragment" : "-Wl,--end-group"
+		}
+	],
+	"name" : "display_game",
+	"nameOnDisk" : "display_game.elf",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				45,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				57,
+				59,
+				61,
+				64,
+				66,
+				68,
+				71,
+				73,
+				75,
+				78
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				44,
+				54,
+				55,
+				58,
+				60,
+				62,
+				63,
+				65,
+				67,
+				69,
+				70,
+				72,
+				74,
+				77
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				46,
+				56,
+				76
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 53,
+			"path" : "debug/mcux_config.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 57,
+			"path" : "debug/mcuxsdk_version.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 59,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153/fsl_device_registers.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 60,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153/MCXA153.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 61,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153/MCXA153_features.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 62,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153/MCXA153_COMMON.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 63,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_ADC.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 64,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_AOI.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 65,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_CDOG.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 66,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_CMC.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 67,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_CRC.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 68,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_CTIMER.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 69,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_DEBUGMAILBOX.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 70,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_DMA.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 71,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_EIM.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 72,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_EQDC.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 73,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_ERM.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 74,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_FMC.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 75,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_FMU.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 76,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_FMUTEST.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 77,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_FREQME.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 78,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_GLIKEY.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 79,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_GPIO.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 80,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_I3C.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 81,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_INPUTMUX.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 82,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_LPCMP.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 83,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_LPI2C.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 84,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_LPSPI.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 85,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_LPTMR.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 86,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_LPUART.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 87,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_MRCC.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 88,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_OSTIMER.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 89,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_PORT.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 90,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_PWM.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 91,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_SCG.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 92,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_SPC.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 93,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_SYSCON.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 94,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_TRDC.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 95,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_USB.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 96,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_UTICK.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 97,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_VBAT.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 98,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_WAKETIMER.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 99,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_WUU.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 100,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/periph/PERI_WWDT.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 102,
+			"compileGroupIndex" : 0,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153/system_MCXA153.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 103,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153/system_MCXA153.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 105,
+			"compileGroupIndex" : 1,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153/gcc/startup_MCXA153.S",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 107,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/cmsis_compiler.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 108,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/cmsis_version.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 110,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/cmsis_gcc.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 111,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/m-profile/cmsis_gcc_m.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 113,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/core_cm33.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 115,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/m-profile/armv8m_mpu.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 116,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/arch/arm/CMSIS/Core/Include/tz_context.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 119,
+			"compileGroupIndex" : 0,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/components/misc_utilities/fsl_syscall_stub.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 121,
+			"compileGroupIndex" : 0,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/components/misc_utilities/fsl_sbrk.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 123,
+			"compileGroupIndex" : 1,
+			"path" : "D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/components/misc_utilities/fsl_memcpy.S",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 125,
+			"path" : "board/board.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 126,
+			"compileGroupIndex" : 0,
+			"path" : "fifo/fifo.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 127,
+			"path" : "fifo/fifo.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 128,
+			"compileGroupIndex" : 0,
+			"path" : "leds/leds.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 129,
+			"path" : "leds/leds.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 130,
+			"compileGroupIndex" : 0,
+			"path" : "main.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 131,
+			"compileGroupIndex" : 0,
+			"path" : "resources/animations.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 132,
+			"path" : "resources/animations.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 133,
+			"compileGroupIndex" : 0,
+			"path" : "resources/bitmaps.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 134,
+			"path" : "resources/bitmaps.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 135,
+			"compileGroupIndex" : 0,
+			"path" : "resources/fonts.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 136,
+			"path" : "resources/fonts.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 137,
+			"compileGroupIndex" : 0,
+			"path" : "serial/retarget.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 138,
+			"compileGroupIndex" : 0,
+			"path" : "serial/serial.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 139,
+			"path" : "serial/serial.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 140,
+			"compileGroupIndex" : 0,
+			"path" : "tft_lcd/lpspi_master.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 141,
+			"path" : "tft_lcd/lpspi_master.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 142,
+			"compileGroupIndex" : 0,
+			"path" : "tft_lcd/tft_lcd.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 143,
+			"path" : "tft_lcd/tft_lcd.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 144,
+			"path" : "tools/convert.py",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 145,
+			"compileGroupIndex" : 0,
+			"path" : "simonsaid/start.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 146,
+			"path" : "simonsaid/start.h",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

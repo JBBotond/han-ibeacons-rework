@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+dma_mem2mem:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/drivers/dma/mem2mem
+    project-root-path: boards/${board}/ese_examples/drivers/dma/mem2mem/${multicore_foldername}
+    document:
+      name: dma_mem2mem${core_id_suffix_name}
+      category: ese_examples/drivers/dma
+      brief: DMA mem2mem example.
+      example_readme:
+      - examples/ese_examples/drivers/dma/mem2mem/readme.md
+      - ${board_root}/${board}/ese_examples/drivers/dma/mem2mem/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

@@ -1,0 +1,15 @@
+lpuart_polling:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/drivers/lpuart/polling
+    project-root-path: boards/${board}/ese_examples/drivers/lpuart/polling/${multicore_foldername}
+    document:
+      name: lpuart_polling${core_id_suffix_name}
+      category: ese_examples/drivers/lpuart
+      brief: LPUART polling example.
+      example_readme:
+      - examples/ese_examples/drivers/lpuart/polling/readme.md
+      - ${board_root}/${board}/ese_examples/drivers/lpuart/polling/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

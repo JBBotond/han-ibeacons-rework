@@ -1,0 +1,7 @@
+[manifest]
+path = manifests
+file = west.yml
+
+[env]
+ruby = C:/_ha/_nxp_mcuxpresso/mcuxpresso-sdk/mcuxsdk/scripts/resources/portable_ruby_nt/setup.bat/bin
+

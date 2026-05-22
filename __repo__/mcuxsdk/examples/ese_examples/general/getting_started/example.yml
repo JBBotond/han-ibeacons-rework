@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+general_getting_started:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/general/getting_started
+    project-root-path: boards/${board}/ese_examples/general/getting_started/${multicore_foldername}
+    document:
+      name: general_getting_started${core_id_suffix_name}
+      category: ese_examples/general
+      brief: Getting started example.
+      example_readme:
+      - examples/ese_examples/general/getting_started/readme.md
+      - ${board_root}/${board}/ese_examples/general/getting_started/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

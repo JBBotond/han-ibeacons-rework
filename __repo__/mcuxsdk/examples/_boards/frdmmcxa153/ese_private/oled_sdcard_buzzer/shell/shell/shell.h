@@ -1,0 +1,56 @@
+/*! ***************************************************************************
+ *
+ * \brief     Shell framework for embedded applications
+ * \file      shell.c
+ * \author    Hugo Arends
+ *            Mostly generated using GitHub Copilot
+ * \date      February 2026
+ *
+ * \copyright 2026 HAN University of Applied Sciences. All Rights Reserved.
+ *            \n\n
+ *            Permission is hereby granted, free of charge, to any person
+ *            obtaining a copy of this software and associated documentation
+ *            files (the "Software"), to deal in the Software without
+ *            restriction, including without limitation the rights to use,
+ *            copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *            copies of the Software, and to permit persons to whom the
+ *            Software is furnished to do so, subject to the following
+ *            conditions:
+ *            \n\n
+ *            The above copyright notice and this permission notice shall be
+ *            included in all copies or substantial portions of the Software.
+ *            \n\n
+ *            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ *            EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ *            OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ *            NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ *            HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ *            WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *            FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ *            OTHER DEALINGS IN THE SOFTWARE.
+ *
+ *****************************************************************************/
+#ifndef SHELL_H
+#define SHELL_H
+
+#include <stddef.h>
+
+typedef struct {
+    const char *name;
+    const char *description;
+    void (*callback)(const char *args);
+} shell_command_t;
+
+typedef struct {
+    shell_command_t *commands;
+    size_t command_count;
+    char *cwd;
+    size_t cwd_size;
+} shell_context_t;
+
+void shell_init(shell_context_t *ctx, shell_command_t *commands, size_t cmd_count, char *cwd_buffer, size_t cwd_size);
+void shell_run(shell_context_t *ctx);
+void shell_register_command(shell_context_t *ctx, const char *name, const char *desc, void (*callback)(const char *));
+void shell_normalize_path(const char *base, const char *input, char *output, size_t output_size);
+
+#endif

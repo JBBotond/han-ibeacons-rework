@@ -1,0 +1,10 @@
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/leds/leds.c:53:6:leds_init	4	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/leds/leds.c:123:6:led_red_on	4	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/leds/leds.c:128:6:led_red_off	4	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/leds/leds.c:133:6:led_red_toggle	4	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/leds/leds.c:138:6:led_green_on	4	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/leds/leds.c:143:6:led_green_off	4	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/leds/leds.c:148:6:led_green_toggle	4	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/leds/leds.c:153:6:led_blue_on	4	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/leds/leds.c:158:6:led_blue_off	4	static
+D:/STUDYMATERIALS/PROJECT_2/personalCode/display_game/leds/leds.c:163:6:led_blue_toggle	4	static

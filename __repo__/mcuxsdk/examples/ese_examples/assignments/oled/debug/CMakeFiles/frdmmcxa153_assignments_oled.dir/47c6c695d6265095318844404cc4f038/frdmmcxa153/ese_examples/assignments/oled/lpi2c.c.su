@@ -1,0 +1,4 @@
+D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/examples/_boards/frdmmcxa153/ese_examples/assignments/oled/lpi2c.c:55:6:lpi2c_controller_init	4	static
+D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/examples/_boards/frdmmcxa153/ese_examples/assignments/oled/lpi2c.c:69:6:lpi2c_busy	4	static
+D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/examples/_boards/frdmmcxa153/ese_examples/assignments/oled/lpi2c.c:76:6:lpi2c_write	24	static
+D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/examples/_boards/frdmmcxa153/ese_examples/assignments/oled/lpi2c.c:81:6:lpi2c_read	24	static

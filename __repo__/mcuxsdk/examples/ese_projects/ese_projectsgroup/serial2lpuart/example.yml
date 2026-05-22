@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+serial2lpuart:
+  section-type: application
+  contents:
+    meta_path: examples/ese_projects/serial2lpuart
+    project-root-path: boards/${board}/ese_projects/serial2lpuart/${multicore_foldername}
+    document:
+      name: serial2lpuart${core_id_suffix_name}
+      category: ese_projects
+      brief: Serial (LPUART0) to/from LPUART2 communication example project.
+      example_readme:
+      - examples/ese_projects/serial2lpuart/readme.md
+      - ${board_root}/${board}/ese_projects/serial2lpuart/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

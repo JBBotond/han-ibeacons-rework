@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+shieldv3_encoder_shiftregister:
+  section-type: application
+  contents:
+    meta_path: examples/ese_projects/shieldv3/encoder_shiftregister
+    project-root-path: boards/${board}/ese_projects/shieldv3/encoder_shiftregister/${multicore_foldername}
+    document:
+      name: shieldv3_encoder_shiftregister${core_id_suffix_name}
+      category: ese_projects/shieldv3
+      brief: Shield v3 rotary encoder and shiftregister example project.
+      example_readme:
+      - examples/ese_projects/shieldv3/encoder_shiftregister/readme.md
+      - ${board_root}/${board}/ese_projects/shieldv3/encoder_shiftregister/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

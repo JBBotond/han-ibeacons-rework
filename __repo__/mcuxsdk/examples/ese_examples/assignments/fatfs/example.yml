@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+assignments_fatfs:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/assignments/fatfs
+    project-root-path: boards/${board}/ese_examples/assignments/fatfs/${multicore_foldername}
+    document:
+      name: assignments_fatfs${core_id_suffix_name}
+      category: ese_examples/assignments
+      brief: Assignment - FatFS SDCARD SPI exampple
+      example_readme:
+      - examples/ese_examples/assignments/fatfs/readme.md
+      - ${board_root}/${board}/ese_examples/assignments/fatfs/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

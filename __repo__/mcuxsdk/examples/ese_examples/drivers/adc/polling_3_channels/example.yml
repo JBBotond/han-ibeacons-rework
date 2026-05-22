@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+adc_polling_3_channels:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/drivers/adc/polling_3_channels
+    project-root-path: boards/${board}/ese_examples/drivers/adc/polling_3_channels/${multicore_foldername}
+    document:
+      name: adc_polling_3_channels${core_id_suffix_name}
+      category: ese_examples/drivers/adc
+      brief: ADC Polling 3 channels example.
+      example_readme:
+      - examples/ese_examples/drivers/adc/polling_3_channels/readme.md
+      - ${board_root}/${board}/ese_examples/drivers/adc/polling_3_channels/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../../../scripts/data_schema/example_description_schema.json
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+assignments_oled:
+  section-type: application
+  contents:
+    meta_path: examples/ese_examples/assignments/oled
+    project-root-path: boards/${board}/ese_examples/assignments/oled/${multicore_foldername}
+    document:
+      name: assignments_oled${core_id_suffix_name}
+      category: ese_examples/assignments
+      brief: Assignment - OLED control using polling, interrupts, or DMA
+      example_readme:
+      - examples/ese_examples/assignments/oled/readme.md
+      - ${board_root}/${board}/ese_examples/assignments/oled/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxa153: []

@@ -1,0 +1,3 @@
+D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153/system_MCXA153.c:68:29:SystemInit	16	static
+D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153/system_MCXA153.c:132:6:SystemCoreClockUpdate	4	static
+D:/STUDYMATERIALS/MIC3/sdks/sdk_26_03_00_ese_04_frdmmcxa153/mcuxsdk/devices/MCX/MCXA/MCXA153/system_MCXA153.c:143:29:SystemInitHook	4	static
