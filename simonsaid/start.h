@@ -11,4 +11,6 @@
 #include "bitmaps.h"
 #include "fonts.h"
 void start_screen(void);
+void input_detect(void);
+bool compare_pattern(void);
 #endif /*START_H*/
