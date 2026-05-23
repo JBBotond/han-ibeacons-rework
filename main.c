@@ -93,7 +93,7 @@ int main(void)
     lcd_set_font(Dialog_bold_16);
     uint8_t font_height = Dialog_bold_16[1];
     lcd_put_string(0, 0, "WELCOME", RGB_WHITE, RGB_BLACK);
-    lcd_put_string(0, 1 * font_height, "Simon Said game", RGB_WHITE, RGB_BLACK);
+    lcd_put_string(0, 1 * font_height, "Simon Says game", RGB_WHITE, RGB_BLACK);
 
     lcd_set_font(Dialog_plain_12);
     font_height = Dialog_plain_12[1];
@@ -118,7 +118,6 @@ int main(void)
         {
             touch_detected = false;
             lcd_get_touch();
-            start_screen();
             
             
         }

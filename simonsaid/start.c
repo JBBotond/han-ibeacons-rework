@@ -41,7 +41,7 @@ void start_screen(void){
             lcd_set_font(Dialog_bold_16);
             lcd_orientation(ORIENTATION_90);
             uint8_t font_height = Dialog_bold_16[1];
-            lcd_put_string(MIDDLE, 0 * font_height, "Simon Said game", RGB_WHITE, RGB_BLUE);
+            lcd_put_string(MIDDLE, 0 * font_height, "Simon Says game", RGB_WHITE, RGB_BLUE);
             lcd_set_font(Dialog_plain_12);
             font_height = Dialog_plain_12[1];
             lcd_put_string(0,2*font_height,"Instruction:",RGB_WHITE,RGB_BLACK);
