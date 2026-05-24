@@ -24,12 +24,24 @@ mcux_add_source(
             serial/retarget.c
             serial/serial.c
             serial/serial.h
+            serial/lpuart2.h
+            serial/lpuart2.c
             functions/functions.c
             functions/functions.h
-            serial2lpuart/lpuart2.c
-            serial2lpuart/lpuart2.h
             solenoid/solenoid.c
             solenoid/solenoid.h
+            display/resources/animations.c
+            display/resources/animations.h
+            display/resources/bitmaps.c
+            display/resources/bitmaps.h
+            display/resources/fonts.c
+            display/resources/fonts.h
+            display/tft_lcd/lpspi_master.c
+            display/tft_lcd/lpspi_master.h
+            display/tft_lcd/tft_lcd.c
+            display/tft_lcd/tft_lcd.h
+            display/resources/screens.c
+            display/resources/screens.h
 )
 
 mcux_add_include(
@@ -37,7 +49,7 @@ mcux_add_include(
              board
              fifo
              serial
-             libeacon
+             display/resources
+             display/tft_lcd
 )
 mcux_convert_binary(BINARY ${APPLICATION_BINARY_DIR}/${MCUX_SDK_PROJECT_NAME}.bin)
-

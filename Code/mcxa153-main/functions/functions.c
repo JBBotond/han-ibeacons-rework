@@ -20,7 +20,6 @@ void led_init(void) {
     MRCC0->MRCC_GLB_RST1_SET = MRCC_MRCC_GLB_RST1_GPIO3(1);
 
     PORT3->PCR[12] = PORT_PCR_LK(1);
-    PORT3->PCR[12] = PORT_PCR_LK(1);
     
     GPIO3->PSOR |= (1<<12);
     GPIO3->PSOR |= (1<<13);
@@ -243,7 +242,8 @@ void GPIO1_IRQHandler(void) {
         printf("Button A is pressed \r\n");
     }
 }
-void GPIO2_IRQHandler(void) {}
+//  GPIO2 IRQ handler in found in display/tft_lcd/lpspi_master.c
+// void GPIO2_IRQHandler(void) {}
 void GPIO3_IRQHandler(void) {
     NVIC_ClearPendingIRQ(GPIO3_IRQn);
 

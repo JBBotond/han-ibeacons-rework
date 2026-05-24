@@ -5,6 +5,10 @@
 #include "lpuart2.h"
 #include "functions/functions.h"
 #include "solenoid/solenoid.h"
+#include "display/resources/fonts.h"
+#include "display/tft_lcd/lpspi_master.h"
+#include "display/tft_lcd/tft_lcd.h"
+#include "display/resources/screens.h"
 
 // -----------------------------------------------------------------------------
 // Local type definitions
@@ -32,6 +36,9 @@ const int treshold = 10;
 
 //  buffer used for holding at commands to be sent
 char *atCommand = "AT+DISI?\r\n";
+
+//  variable to indicate orientation of LCD
+//static orientation_t orientation = ORIENTATION_270;
 // -----------------------------------------------------------------------------
 // Main application
 // -----------------------------------------------------------------------------
@@ -45,6 +52,8 @@ int main(void)
 
     box_init();
     led_init();
+    lcd_init();
+
     e_init_done();
     BOX_CURRENT_STATE = BOX_SELECT_MODE;
 
