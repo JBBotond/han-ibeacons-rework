@@ -6,6 +6,8 @@
 #include "functions/functions.h"
 #include "solenoid/solenoid.h"
 #include "display/resources/fonts.h"
+#include "display/resources/bitmaps.h"
+#include "display/resources/animations.h"
 #include "display/tft_lcd/lpspi_master.h"
 #include "display/tft_lcd/tft_lcd.h"
 #include "display/resources/screens.h"
@@ -34,11 +36,11 @@ int distanceToBeacon = 0;
 //  remove const for calibration
 const int treshold = 10;
 
-//  buffer used for holding at commands to be sent
-char *atCommand = "AT+DISI?\r\n";
+volatile uint32_t ms = 0;
 
-//  variable to indicate orientation of LCD
-//static orientation_t orientation = ORIENTATION_270;
+//  enum type user for setting LCD orientation
+static orientation_t orientation = ORIENTATION_270;
+
 // -----------------------------------------------------------------------------
 // Main application
 // -----------------------------------------------------------------------------
@@ -47,17 +49,29 @@ int main(void)
     serial_init(115200);
     lpuart2_init(9600);
 
+    //  set up SysTick for interrupt every 1ms
+    SCG0->FIRCCFG = SCG_FIRCCFG_FREQ_SEL(0b101);
+    SysTick_Config(96000);
+
     printf("Ibeacon project\r\n");
     printf("%s build %s %s\r\n", TARGETSTR, __DATE__, __TIME__);
+    
+    lcd_init();
+    lcd_orientation(orientation);
+    lcd_clear(RGB_BLACK);
 
+    //  peripherals initialize
     box_init();
     led_init();
-    lcd_init();
+    
+    lcd_set_font(Dialog_bold_16);
+    lcd_put_string(0, 0, "Ibeacons project", RGB_LIME, RGB_BLACK);
 
     e_init_done();
     BOX_CURRENT_STATE = BOX_SELECT_MODE;
 
-    atSendCommand(atCommand);
+    //  send command to scan for ibeacons
+    //atSendCommand(atCommand);
 
     while(1)
     {
@@ -159,3 +173,15 @@ int main(void)
 // -----------------------------------------------------------------------------
 // Local function implementation
 // -----------------------------------------------------------------------------
+void SysTick_Handler(void)
+{
+    ms++;
+}
+
+const orientation_t orientations[] =
+    {
+        ORIENTATION_0,
+        ORIENTATION_90,
+        ORIENTATION_180,
+        ORIENTATION_270
+    };

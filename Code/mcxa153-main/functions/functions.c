@@ -262,3 +262,8 @@ void atSendCommand(char *atCommand) {
         lpuart2_putchar(*atCommand++);
     }
 }
+
+void atStartScan() {
+    //  send command to scan for ibeacons
+    atSendCommand("AT+DISI?\r\n");
+}

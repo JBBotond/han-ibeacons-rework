@@ -74,6 +74,7 @@ void e_game_over(void);
 
 //  ibeacon functions
 void atSendCommand(char *atCommand);
+void atStartScan();
 
 extern int BOX_CURRENT_STATE;
 extern int BOX_MODE;
