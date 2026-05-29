@@ -82,12 +82,16 @@ void box_game_mode_init(void) {
 
 
 }
-void box_admin_mode_init(void) {}
+void box_admin_mode_init(void) {
+    //  connect to pc
+    //  passwd
+}
 void box_debug_mode(void) {}
 
 //  void for now, BOOL LATER!!
 bool box_game_scan(void) {
-    printf("Scanning for ibeacons...");
+    lcd_new_line("Scanning for ibeacons...");
+
     int beacon_cnt = 0;
     //  scanning code by Danyil
     //  UUID-s in global buffer
@@ -98,18 +102,19 @@ bool box_game_scan(void) {
         return true;
     return false;
 }
+
 void box_display_distance(void) {
     //  display game element goes here
 
-    printf("Display:      __...... 0 m \r\n");
+    lcd_new_line("_____...... 5 m");
 }
 void box_game_hints(void) {
-    printf("Found!. Locating next ibeacon... \r\n");
-
-
+    // lcd_reset_cursor();
+    lcd_new_line("Found! Locating next ibeacon...");
 }
 void box_game_final(void) {
-    printf("All ibeacons found. Unlocking box! /r/n");
+    // lcd_reset_cursor();
+    lcd_new_line("All ibeacons found. Unlocking box!");
 
     solenoid_lock(0);
     printf("Solenoid powered /r/n");
@@ -159,7 +164,7 @@ bool e_all_ibeacons_found(void) {
     //  return true if all ibeacons have been found
     if(1 == 1)
         return true;
-    else return false;
+    return false;
 
 }
 void e_draw_distance(void) {

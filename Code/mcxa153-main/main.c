@@ -70,7 +70,6 @@ int main(void)
 
     font_height = Dialog_bold_16[1];
 
-    //lcd_put_string(0, 0, "Ibeacons project", RGB_LIME, RGB_BLACK);
     lcd_new_line("Ibeacons project");
 
     e_init_done();
