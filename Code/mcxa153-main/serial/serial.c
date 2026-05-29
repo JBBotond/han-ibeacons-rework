@@ -121,7 +121,7 @@ void serial_init(const uint32_t baudrate)
     // SBR: [.............] = baud rate = baud clock / ((OSR + 1) * SBR)
     //                        => SBR = baud clock / (baud rate * (OSR+1))
     LPUART0->BAUD = LPUART_BAUD_OSR(0b01111) |
-       LPUART_BAUD_SBR(CLK_FRO_48MHZ / (baudrate * 16));
+       LPUART_BAUD_SBR(96000000 / (baudrate * 16));
 
     // 2.
     //

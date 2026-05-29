@@ -41,6 +41,8 @@ volatile uint32_t ms = 0;
 //  enum type user for setting LCD orientation
 static orientation_t orientation = ORIENTATION_270;
 
+uint8_t font_height;
+int line_count = 0;
 // -----------------------------------------------------------------------------
 // Main application
 // -----------------------------------------------------------------------------
@@ -65,13 +67,17 @@ int main(void)
     led_init();
     
     lcd_set_font(Dialog_bold_16);
-    lcd_put_string(0, 0, "Ibeacons project", RGB_LIME, RGB_BLACK);
+
+    font_height = Dialog_bold_16[1];
+
+    //lcd_put_string(0, 0, "Ibeacons project", RGB_LIME, RGB_BLACK);
+    lcd_new_line("Ibeacons project");
 
     e_init_done();
     BOX_CURRENT_STATE = BOX_SELECT_MODE;
 
-    //  send command to scan for ibeacons
-    //atSendCommand(atCommand);
+    //  each state has LCD commands in it's function
+    lcd_new_line("Please select a mode!");
 
     while(1)
     {

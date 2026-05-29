@@ -78,3 +78,4 @@ void atStartScan();
 
 extern int BOX_CURRENT_STATE;
 extern int BOX_MODE;
+extern uint8_t font_height;

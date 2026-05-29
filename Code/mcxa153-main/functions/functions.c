@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "solenoid/solenoid.h"
+#include "display/tft_lcd/tft_lcd.h"
+#include "display/resources/screens.h"
 
 void init_button(void);
 bool buttonA_pressed(void);
@@ -57,10 +59,16 @@ void box_select_mode(int *mode) {
     if(buttonA_pressed()) {
         *mode = GAME;
         printf("Game mode selected! \r\n");
+
+        lcd_reset_cursor();
+        lcd_new_line("Game mode");
     }
     else if(buttonB_pressed()) {
         *mode = ADMIN;
         printf("Admin mode selected! \r\n");
+
+        lcd_reset_cursor();
+        lcd_new_line("Admin mode");
     }
 
 }

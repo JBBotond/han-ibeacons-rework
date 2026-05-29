@@ -111,14 +111,14 @@ void lpspi_master_init(void)
     PORT2->PCR[16] = PORT_PCR_LK(1) | PORT_PCR_MUX(2) | PORT_PCR_IBE(1); // LPSPI1_SDI  - TFT_LCD_MISO
     PORT2->PCR[6]  = PORT_PCR_LK(1) | PORT_PCR_MUX(2) | PORT_PCR_IBE(1); // LPSPI1_PCS1 - TFT_LCD_CS1
     PORT3->PCR[11] = PORT_PCR_LK(1) | PORT_PCR_MUX(2) | PORT_PCR_IBE(1); // LPSPI1_PCS0 - TFT_LCD_CS2
-    PORT1->PCR[5]  = PORT_PCR_LK(1) | PORT_PCR_MUX(0);                   // P1_5        - TFT_LCD_RES
+    PORT3->PCR[15] = PORT_PCR_LK(1) | PORT_PCR_MUX(0);                  // P3_15        - TFT_LCD_RES      // changed from P1_5 to P3_15 due to lpuart2 conflict
     PORT2->PCR[1]  = PORT_PCR_LK(1) | PORT_PCR_MUX(0);                   // P2_1        - TFT_LCD_DC
     PORT2->PCR[2]  = PORT_PCR_LK(1) | PORT_PCR_MUX(0);                   // P2_2        - TFT_LCD_BLK
     PORT2->PCR[3]  = PORT_PCR_LK(1) | PORT_PCR_MUX(0) | PORT_PCR_IBE(1); // P2_3        - TFT_LCD_PEN
 
     // Set GPIO pins initial output values and directions
-    GPIO1->PCOR  = (1<<5);
-    GPIO1->PDDR |= (1<<5);
+    GPIO3->PCOR  = (1<<15);
+    GPIO3->PDDR |= (1<<15);
 
     GPIO2->PCOR  = (1<<1) | (1<<2) | (1<<3);
     GPIO2->PDDR |= (1<<1) | (1<<2);
@@ -165,7 +165,7 @@ void lpspi_master_init(void)
     NVIC_EnableIRQ(GPIO2_IRQn);
 
     // Release TFT_LCD from reset
-    GPIO1->PSOR = (1<<5);
+    GPIO3->PSOR = (1<<15);
 }
 
 /*!
