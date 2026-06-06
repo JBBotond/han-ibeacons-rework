@@ -1,0 +1,29 @@
+# IDE
+.idea/
+
+# Build artifacts (anywhere in tree)
+**/build/
+**/debug/
+**/release/
+*.o
+*.exe
+*.exe.debug
+*.idx
+
+# Qt Creator
+*.pro.user
+*.pro.user.*
+**/.qtc_clangd/
+*.qmake.stash
+
+# MCU SDK folders (should not be in repo)
+Code/MCU/IAR_BASE/
+Code/MCU/LCD/
+Code/MCU/UART/
+
+# Zip archives
+*.zip
+
+# Temp files
+~$*
+*.tmp

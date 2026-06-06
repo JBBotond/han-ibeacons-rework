@@ -1,0 +1,26 @@
+# Ignore everything except .c and .h source files.
+# Build output (debug/, release/, build/) is always ignored.
+
+# Step 1: Ignore ALL files and directories
+*
+
+# Step 2: Allow directory traversal
+!*/
+
+# Step 3: Allow only .c and .h source files
+!*.c
+!*.h
+
+# Step 4: Allow .gitignore itself
+!.gitignore
+
+# Step 5: Re-ignore build output directories even if they contain .c/.h
+debug/
+release/
+build/
+
+
+IAR_BASE/
+LCD/
+UART/
+
